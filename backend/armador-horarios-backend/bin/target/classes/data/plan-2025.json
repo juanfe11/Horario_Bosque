@@ -1,0 +1,95 @@
+{
+  "planId": "PLAN-2025",
+  "planNombre": "Ingenieria de Sistemas - Plan 2025",
+  "totalAsignaturas": 48,
+  "asignaturas": [
+    {
+      "id": "ASI-101",
+      "nombre": "Modelizacion Informacional",
+      "semestre": 1,
+      "componente": "Fundamentacion",
+      "creditos": 3,
+      "horasPresenciales": 4,
+      "horasIndependientes": 5,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "ASI-102",
+      "nombre": "Fundamentos de Ingenieria",
+      "semestre": 1,
+      "componente": "Fundamentacion",
+      "creditos": 3,
+      "horasPresenciales": 4,
+      "horasIndependientes": 5,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "ASI-103",
+      "nombre": "Desarrollo de Sistemas de Informacion 1",
+      "semestre": 1,
+      "componente": "Disciplinar",
+      "creditos": 3,
+      "horasPresenciales": 4,
+      "horasIndependientes": 5,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "ASI-104",
+      "nombre": "Matematicas 1",
+      "semestre": 1,
+      "componente": "Ciencias Basicas",
+      "creditos": 3,
+      "horasPresenciales": 4,
+      "horasIndependientes": 5,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "ASI-105",
+      "nombre": "Ciencias para la Vida",
+      "semestre": 1,
+      "componente": "Institucional",
+      "creditos": 2,
+      "horasPresenciales": 2,
+      "horasIndependientes": 4,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "ASI-106",
+      "nombre": "Idiomas 2",
+      "semestre": 1,
+      "componente": "Lenguaje",
+      "creditos": 2,
+      "horasPresenciales": 4,
+      "horasIndependientes": 2,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "ASI-201",
+      "nombre": "Estructuras de Datos y Algoritmos",
+      "semestre": 2,
+      "componente": "Disciplinar",
+      "creditos": 3,
+      "horasPresenciales": 4,
+      "horasIndependientes": 5,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "ASI-202",
+      "nombre": "Modelizacion Computacional",
+      "semestre": 2,
+      "componente": "Fundamentacion",
+      "creditos": 3,
+      "horasPresenciales": 4,
+      "horasIndependientes": 5,
+      "esElectiva": false,
+      "tieneOferta": true
+    }
+  ]
+}

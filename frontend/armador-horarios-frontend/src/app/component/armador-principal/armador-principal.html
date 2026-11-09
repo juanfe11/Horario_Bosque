@@ -1,0 +1,309 @@
+<app-navbar
+  [planes]="planes"
+  [planSeleccionado]="planSeleccionado"
+  [totalCreditos]="totalCreditos"
+  [totalHoras]="totalHoras"
+  (cambioPlan)="onCambioPlan($event)">
+</app-navbar>
+
+<div class="main-container">
+
+  <div class="instruction-banner">
+    <div class="instruction-content">
+      <i class="fas fa-info-circle instruction-icon"></i>
+      <div>
+        <strong>Cómo usarlo:</strong> Selecciona una sección de la bandeja para colocarla en el cronograma semanal.
+        El sistema validará de manera reactiva (< 200 ms) el cupo, las normas institucionales y que no existan cruces.
+        Usa la <strong>&times;</strong> de cada bloque para devolverlo a la bandeja. Al cambiar de semestre o plan, el horario se reinicia.
+      </div>
+    </div>
+    <button class="btn btn-sm btn-outline-danger" (click)="limpiarHorario()">
+      <i class="fas fa-trash-alt"></i> Reiniciar cronograma
+    </button>
+  </div>
+
+  @if (mensajeFeedback) {
+    <div [class]="'alert alert-' + tipoFeedback + ' alert-dismissible fade show feedback-alert'" role="alert">
+      <i [class]="tipoFeedback === 'success' ? 'fas fa-check-circle' : (tipoFeedback === 'warning' ? 'fas fa-exclamation-triangle' : 'fas fa-times-circle')"></i>
+      {{ mensajeFeedback }}
+      <button type="button" class="btn-close" (click)="mensajeFeedback = ''"></button>
+    </div>
+  }
+
+
+  <div class="workspace-grid">
+
+    <div class="schedule-column">
+      <div class="schedule-card">
+        <div class="schedule-header">
+          <h2><i class="fas fa-calendar-week"></i> Cronograma semanal de horarios (Bloques de 2 horas)</h2>
+          <span class="period-tag"><i class="fas fa-clock"></i> Jornada Diurna y Nocturna</span>
+        </div>
+
+        <div class="table-responsive">
+          <table class="schedule-table">
+            <thead>
+              <tr>
+                <th class="th-hora">HORA</th>
+                @for (dia of diasSemana; track dia) {
+                  <th>{{ dia }}</th>
+                }
+              </tr>
+            </thead>
+            <tbody>
+              @for (bloque of bloquesHorarios; track bloque.id) {
+
+                @if (bloque.esAlmuerzo) {
+                  <tr class="row-receso">
+                    <td class="cell-hora">{{ bloque.horaInicio }} pm</td>
+                    <td [attr.colspan]="diasSemana.length" class="cell-receso">
+                      <div class="receso-label">
+                        <i class="fas fa-utensils"></i> RECESO INSTITUCIONAL DE ALMUERZO (13:00 - 14:00) - FRANJA PROTEGIDA
+                      </div>
+                    </td>
+                  </tr>
+                } @else {
+                  <tr>
+                    <td class="cell-hora">
+                      <strong>{{ bloque.horaInicio > 12 ? (bloque.horaInicio - 12) + ' pm' : bloque.horaInicio + ' am' }}</strong>
+                      <span class="hora-sub">{{ bloque.etiqueta }}</span>
+                    </td>
+
+                    @for (dia of diasSemana; track dia) {
+
+                      @if (dia === 'SABADO' && bloque.horaFin > 13) {
+                        <td class="cell-disabled">
+                          <span class="no-clase-tag">NO CLASE</span>
+                        </td>
+                      } @else {
+
+                        <td class="cell-slot">
+                          @if (obtenerSeccionEnCelda(dia, bloque.horaInicio, bloque.horaFin); as sec) {
+                            <div class="session-chip" [style.borderLeftColor]="obtenerColorSeccion(sec)">
+                              <div class="session-chip-header">
+                                <span class="chip-subject">{{ sec.asignaturaNombre || sec.codigoSeccion }}</span>
+                                <button class="btn-remove-session" (click)="removerSeccion(sec.id)" title="Devolver a la bandeja">&times;</button>
+                              </div>
+                              <div class="chip-details">
+                                <span><i class="fas fa-tag"></i> Sec {{ sec.codigoSeccion }}</span>
+                                <span><i class="fas fa-door-open"></i> {{ sec.aula }}</span>
+                              </div>
+                              <div class="chip-time">
+                                <i class="fas fa-clock"></i> {{ bloque.horaInicio }}:00 - {{ bloque.horaFin }}:00
+                              </div>
+                            </div>
+                          } @else {
+                            <div class="empty-slot"></div>
+                          }
+                        </td>
+                      }
+                    }
+                  </tr>
+                }
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="panels-column">
+
+      <div class="panel-card">
+        <div class="panel-header mode1-header">
+          <h3><i class="fas fa-shield-alt"></i> Estado Modo 1: Validación Reactiva</h3>
+          <span class="latency-badge"><i class="fas fa-bolt"></i> &lt; 200 ms</span>
+        </div>
+        <div class="panel-body">
+          @if (resultadoValidacion) {
+            <div class="validation-result-box" [class.valido]="resultadoValidacion.valida" [class.invalido]="!resultadoValidacion.valida">
+              <div class="result-header">
+                <i [class]="resultadoValidacion.valida ? 'fas fa-check-circle text-success' : 'fas fa-times-circle text-danger'"></i>
+                <strong>{{ resultadoValidacion.valida ? 'Sección Aprobada' : 'Inserción Rechazada' }}</strong>
+                <span class="latency-text">({{ latenciaValidacionMs }} ms)</span>
+              </div>
+              <p class="result-message">{{ resultadoValidacion.mensaje }}</p>
+              @if (!resultadoValidacion.valida) {
+                <div class="conflict-details">
+                  @if (resultadoValidacion.cursoConflicto) {
+                    <div><strong>Conflicto con:</strong> {{ resultadoValidacion.cursoConflicto }}</div>
+                  }
+                  @if (resultadoValidacion.bloqueConflicto) {
+                    <div><strong>Horario del conflicto:</strong> {{ resultadoValidacion.bloqueConflicto }}</div>
+                  }
+                </div>
+              }
+            </div>
+          } @else {
+            <div class="empty-validation-hint">
+              <i class="fas fa-mouse-pointer"></i>
+              <p>Haz clic en cualquier sección de la bandeja para validar reactivamente su compatibilidad.</p>
+            </div>
+          }
+        </div>
+      </div>
+
+
+      <div class="panel-card">
+        <div class="panel-header mode2-header">
+          <h3><i class="fas fa-magic"></i> Modo 2: Explorador Inteligente</h3>
+          <span class="latency-badge"><i class="fas fa-microchip"></i> Backtracking</span>
+        </div>
+        <div class="panel-body">
+          <p class="modo2-instructions">
+            Marca hasta <strong>8 asignaturas</strong> y el algoritmo generará todas las combinaciones posibles sin cruces,
+            ordenadas por menor cantidad de <strong>huecos</strong> (ventanas libres entre clases).
+          </p>
+
+          <div class="course-selector-chips">
+            @for (asig of asignaturasDisponibles; track asig.id) {
+              <button
+                type="button"
+                class="btn-course-chip"
+                [class.selected]="asignaturasSeleccionadasModo2.includes(asig.id)"
+                (click)="toggleSeleccionModo2(asig.id)">
+                <i [class]="asignaturasSeleccionadasModo2.includes(asig.id) ? 'fas fa-check-square' : 'far fa-square'"></i>
+                {{ asig.nombre }}
+              </button>
+            }
+          </div>
+
+          <button
+            class="btn btn-bosque w-100 mt-3"
+            [disabled]="buscandoCombinaciones || asignaturasSeleccionadasModo2.length === 0"
+            (click)="ejecutarBusquedaModo2()">
+            @if (buscandoCombinaciones) {
+              <span class="spinner-border spinner-border-sm me-2"></span> Calculando combinaciones...
+            } @else {
+              <i class="fas fa-search"></i> Buscar combinaciones óptimas ({{ asignaturasSeleccionadasModo2.length }} sel.)
+            }
+          </button>
+
+
+          @if (resultadoBusqueda) {
+            <div class="search-results-section mt-3">
+              @if (resultadoBusqueda.haySolucion) {
+                <div class="solution-summary">
+                  <i class="fas fa-star text-warning"></i> Se encontraron <strong>{{ resultadoBusqueda.totalCombinaciones }}</strong> combinaciones válidas en <strong>{{ latenciaBusquedaMs }} ms</strong>:
+                </div>
+
+                <div class="combinations-list">
+                  @for (comb of resultadoBusqueda.combinaciones; track $index) {
+                    <div class="combination-card">
+                      <div class="combination-info">
+                        <strong>Opción {{ $index + 1 }}</strong>
+                        <span class="badge bg-success ms-2">{{ comb.totalHuecos }} horas de huecos</span>
+                      </div>
+                      <div class="combination-sections-mini">
+                        @for (sec of comb.secciones; track sec.id) {
+                          <span class="mini-tag">{{ sec.asignaturaNombre || sec.codigoSeccion }} ({{ sec.codigoSeccion }})</span>
+                        }
+                      </div>
+                      <button class="btn btn-sm btn-outline-success mt-2" (click)="cargarCombinacion(comb)">
+                        <i class="fas fa-check"></i> Cargar al cronograma
+                      </button>
+                    </div>
+                  }
+                </div>
+              } @else {
+                <div class="no-solution-box">
+                  <i class="fas fa-exclamation-triangle text-warning"></i>
+                  <strong>No se halló combinación viable:</strong>
+                  <ul>
+                    @for (exp of resultadoBusqueda.conflictosExplicados; track $index) {
+                      <li>{{ exp }}</li>
+                    }
+                  </ul>
+                </div>
+              }
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="tray-card mt-4">
+    <div class="tray-header">
+      <div class="tray-title-group">
+        <h2><i class="fas fa-layer-group"></i> Materias disponibles</h2>
+        <span class="tray-subtitle">Las materias que agregues al cronograma se marcarán activas; haz clic en cualquier sección para colocarla.</span>
+      </div>
+
+      <div class="semester-filter">
+        <label for="semestreSelect"><i class="fas fa-filter"></i> Filtrar:</label>
+        <select id="semestreSelect" [ngModel]="semestreSeleccionado" (ngModelChange)="onCambioSemestre($event)" class="form-select-sm">
+          <option [ngValue]="1">Semestre 1</option>
+          <option [ngValue]="2">Semestre 2</option>
+          <option [ngValue]="3">Semestre 3</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="tray-body">
+      @if (asignaturasDisponibles.length === 0) {
+        <div class="empty-tray-message">
+          <i class="fas fa-folder-open"></i> No hay materias disponibles para este semestre en el plan seleccionado.
+        </div>
+      } @else {
+        <div class="subjects-grid">
+          @for (asig of asignaturasDisponibles; track asig.id) {
+            <div class="subject-box" [style.borderTopColor]="asig.color || 'rgb(0, 71, 49)'">
+              <div class="subject-header">
+                <div>
+                  <span class="subject-code">{{ asig.codigo }} &bull; {{ asig.componente }}</span>
+                  <h4 class="subject-name">{{ asig.nombre }}</h4>
+                </div>
+                <span class="credits-chip">{{ asig.creditos }} créd.</span>
+              </div>
+
+
+              <div class="sections-list">
+                @for (sec of asig.secciones; track sec.id) {
+                  <div class="section-item" [class.en-horario]="estaEnHorario(sec.id)" [class.llena]="sec.estaLlena">
+                    <div class="section-main-info">
+                      <div class="section-title-line">
+                        <strong>Sec {{ sec.codigoSeccion }}</strong>
+                        @if (sec.estaLlena) {
+                          <span class="badge-cupo-llena">SATURADA ({{ sec.inscritosSimulados }}/{{ sec.cupoMaximo }})</span>
+                        } @else {
+                          <span class="badge-cupo-ok">{{ sec.cuposDisponibles }} cupos disp. ({{ sec.inscritosSimulados }}/{{ sec.cupoMaximo }})</span>
+                        }
+                      </div>
+                      <div class="section-meta">
+                        <span><i class="fas fa-chalkboard-teacher"></i> {{ sec.docente }}</span>
+                        <span class="ms-2"><i class="fas fa-door-open"></i> {{ sec.aula }}</span>
+                      </div>
+                      <div class="section-schedules">
+                        @for (ses of sec.sesiones; track ses.id) {
+                          <span class="schedule-pill"><i class="far fa-clock"></i> {{ ses.dia }} {{ ses.horaInicio }}:00 - {{ ses.horaFin }}:00</span>
+                        }
+                      </div>
+                    </div>
+
+                    <div class="section-action">
+                      @if (estaEnHorario(sec.id)) {
+                        <button class="btn btn-sm btn-outline-danger" (click)="removerSeccion(sec.id)">
+                          <i class="fas fa-minus"></i> Quitar
+                        </button>
+                      } @else {
+                        <button
+                          class="btn btn-sm btn-bosque"
+                          [disabled]="sec.estaLlena"
+                          (click)="intentarColocarSeccion(sec, asig)">
+                          <i class="fas fa-plus"></i> {{ sec.estaLlena ? 'Sin cupo' : 'Agregar' }}
+                        </button>
+                      }
+                    </div>
+                  </div>
+                }
+              </div>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</div>

@@ -1,0 +1,584 @@
+{
+  "periodo": "2026-2",
+  "secciones": [
+    {
+      "seccionId": "SEC-MAT1-A",
+      "asignaturaId": "MAT-101",
+      "asignaturaNombre": "Matematicas 1",
+      "inscritosSimulados": 38,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 1",
+      "aula": "SALON-101",
+      "sesiones": [
+        { "dia": "LUNES", "inicio": 7, "fin": 9, "aula": "SALON-101" },
+        { "dia": "MIERCOLES", "inicio": 7, "fin": 9, "aula": "SALON-101" }
+      ]
+    },
+    {
+      "seccionId": "SEC-MAT1-B",
+      "asignaturaId": "MAT-101",
+      "asignaturaNombre": "Matematicas 1",
+      "inscritosSimulados": 44,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 2",
+      "aula": "SALON-102",
+      "sesiones": [
+        { "dia": "MARTES", "inicio": 9, "fin": 11, "aula": "SALON-102" },
+        { "dia": "JUEVES", "inicio": 9, "fin": 11, "aula": "SALON-102" }
+      ]
+    },
+    {
+      "seccionId": "SEC-FUND-A",
+      "asignaturaId": "ING-101",
+      "asignaturaNombre": "Fundamentos de ingenieria",
+      "inscritosSimulados": 35,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 3",
+      "aula": "SALON-103",
+      "sesiones": [
+        { "dia": "VIERNES", "inicio": 7, "fin": 9, "aula": "SALON-103" }
+      ]
+    },
+    {
+      "seccionId": "SEC-FUND-B",
+      "asignaturaId": "ING-101",
+      "asignaturaNombre": "Fundamentos de ingenieria",
+      "inscritosSimulados": 30,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 4",
+      "aula": "SALON-104",
+      "sesiones": [
+        { "dia": "MARTES", "inicio": 14, "fin": 16, "aula": "SALON-104" }
+      ]
+    },
+    {
+      "seccionId": "SEC-CIEN-A",
+      "asignaturaId": "BIO-101",
+      "asignaturaNombre": "Ciencias para la vida",
+      "inscritosSimulados": 32,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 5",
+      "aula": "AUD-101",
+      "sesiones": [
+        { "dia": "JUEVES", "inicio": 14, "fin": 16, "aula": "AUD-101" }
+      ]
+    },
+    {
+      "seccionId": "SEC-CIEN-B",
+      "asignaturaId": "BIO-101",
+      "asignaturaNombre": "Ciencias para la vida",
+      "inscritosSimulados": 28,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 6",
+      "aula": "AUD-102",
+      "sesiones": [
+        { "dia": "VIERNES", "inicio": 11, "fin": 13, "aula": "AUD-102" }
+      ]
+    },
+    {
+      "seccionId": "SEC-PENS1-A",
+      "asignaturaId": "HUM-101",
+      "asignaturaNombre": "Estructuracion del pensamiento 1",
+      "inscritosSimulados": 36,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 7",
+      "aula": "SALON-201",
+      "sesiones": [
+        { "dia": "MIERCOLES", "inicio": 11, "fin": 13, "aula": "SALON-201" }
+      ]
+    },
+    {
+      "seccionId": "SEC-PENS1-B",
+      "asignaturaId": "HUM-101",
+      "asignaturaNombre": "Estructuracion del pensamiento 1",
+      "inscritosSimulados": 40,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 8",
+      "aula": "SALON-202",
+      "sesiones": [
+        { "dia": "SABADO", "inicio": 9, "fin": 11, "aula": "SALON-202" }
+      ]
+    },
+    {
+      "seccionId": "SEC-DSI1-A",
+      "asignaturaId": "SIS-101",
+      "asignaturaNombre": "Desarrollo de sistemas de informacion 1",
+      "inscritosSimulados": 39,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 9",
+      "aula": "LAB-INFO-1",
+      "sesiones": [
+        { "dia": "MARTES", "inicio": 16, "fin": 18, "aula": "LAB-INFO-1" },
+        { "dia": "JUEVES", "inicio": 16, "fin": 18, "aula": "LAB-INFO-1" }
+      ]
+    },
+    {
+      "seccionId": "SEC-DSI1-B",
+      "asignaturaId": "SIS-101",
+      "asignaturaNombre": "Desarrollo de sistemas de informacion 1",
+      "inscritosSimulados": 44,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 10",
+      "aula": "LAB-INFO-2",
+      "sesiones": [
+        { "dia": "LUNES", "inicio": 18, "fin": 20, "aula": "LAB-INFO-2" },
+        { "dia": "MIERCOLES", "inicio": 18, "fin": 20, "aula": "LAB-INFO-2" }
+      ]
+    },
+    {
+      "seccionId": "SEC-PSI-A",
+      "asignaturaId": "SIS-102",
+      "asignaturaNombre": "Principios de sistemas de informacion",
+      "inscritosSimulados": 34,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 11",
+      "aula": "LAB-SW-1",
+      "sesiones": [
+        { "dia": "LUNES", "inicio": 9, "fin": 11, "aula": "LAB-SW-1" }
+      ]
+    },
+    {
+      "seccionId": "SEC-PSI-B",
+      "asignaturaId": "SIS-102",
+      "asignaturaNombre": "Principios de sistemas de informacion",
+      "inscritosSimulados": 30,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 12",
+      "aula": "LAB-SW-2",
+      "sesiones": [
+        { "dia": "MIERCOLES", "inicio": 14, "fin": 16, "aula": "LAB-SW-2" }
+      ]
+    },
+    {
+      "seccionId": "SEC-MAT2-A",
+      "asignaturaId": "MAT-201",
+      "asignaturaNombre": "Matematicas 2",
+      "inscritosSimulados": 36,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 1",
+      "aula": "SALON-105",
+      "sesiones": [
+        { "dia": "LUNES", "inicio": 9, "fin": 11, "aula": "SALON-105" },
+        { "dia": "MIERCOLES", "inicio": 9, "fin": 11, "aula": "SALON-105" }
+      ]
+    },
+    {
+      "seccionId": "SEC-ALG-A",
+      "asignaturaId": "MAT-202",
+      "asignaturaNombre": "Algebra lineal",
+      "inscritosSimulados": 38,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 2",
+      "aula": "SALON-106",
+      "sesiones": [
+        { "dia": "MARTES", "inicio": 7, "fin": 9, "aula": "SALON-106" }
+      ]
+    },
+    {
+      "seccionId": "SEC-FIS1-A",
+      "asignaturaId": "FIS-201",
+      "asignaturaNombre": "Fisica 1",
+      "inscritosSimulados": 33,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 3",
+      "aula": "LAB-FIS-1",
+      "sesiones": [
+        { "dia": "JUEVES", "inicio": 7, "fin": 9, "aula": "LAB-FIS-1" }
+      ]
+    },
+    {
+      "seccionId": "SEC-DES1-A",
+      "asignaturaId": "ING-201",
+      "asignaturaNombre": "Desafios desde las ciencias para la ingenieria 1",
+      "inscritosSimulados": 31,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 4",
+      "aula": "SALON-203",
+      "sesiones": [
+        { "dia": "VIERNES", "inicio": 9, "fin": 11, "aula": "SALON-203" }
+      ]
+    },
+    {
+      "seccionId": "SEC-PENS2-A",
+      "asignaturaId": "HUM-201",
+      "asignaturaNombre": "Estructuracion del pensamiento 2",
+      "inscritosSimulados": 37,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 5",
+      "aula": "SALON-204",
+      "sesiones": [
+        { "dia": "MARTES", "inicio": 11, "fin": 13, "aula": "SALON-204" }
+      ]
+    },
+    {
+      "seccionId": "SEC-DSI2-A",
+      "asignaturaId": "SIS-201",
+      "asignaturaNombre": "Desarrollo de sistemas de informacion 2",
+      "inscritosSimulados": 35,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 6",
+      "aula": "LAB-INFO-3",
+      "sesiones": [
+        { "dia": "LUNES", "inicio": 14, "fin": 16, "aula": "LAB-INFO-3" },
+        { "dia": "MIERCOLES", "inicio": 14, "fin": 16, "aula": "LAB-INFO-3" }
+      ]
+    },
+    {
+      "seccionId": "SEC-ELEC1-A",
+      "asignaturaId": "ELE-201",
+      "asignaturaNombre": "Electiva libre 1",
+      "inscritosSimulados": 29,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 7",
+      "aula": "SALON-205",
+      "sesiones": [
+        { "dia": "VIERNES", "inicio": 14, "fin": 16, "aula": "SALON-205" }
+      ]
+    },
+    {
+      "seccionId": "SEC-BIO-A",
+      "asignaturaId": "MAT-301",
+      "asignaturaNombre": "Bioestadistica y probabilidad",
+      "inscritosSimulados": 34,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 8",
+      "aula": "SALON-107",
+      "sesiones": [
+        { "dia": "LUNES", "inicio": 11, "fin": 13, "aula": "SALON-107" }
+      ]
+    },
+    {
+      "seccionId": "SEC-FIS2-A",
+      "asignaturaId": "FIS-301",
+      "asignaturaNombre": "Fisica 2",
+      "inscritosSimulados": 36,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 9",
+      "aula": "LAB-FIS-2",
+      "sesiones": [
+        { "dia": "MIERCOLES", "inicio": 11, "fin": 13, "aula": "LAB-FIS-2" }
+      ]
+    },
+    {
+      "seccionId": "SEC-DES2-A",
+      "asignaturaId": "ING-301",
+      "asignaturaNombre": "Desafios desde las ciencias para la ingenieria 2",
+      "inscritosSimulados": 30,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 10",
+      "aula": "SALON-206",
+      "sesiones": [
+        { "dia": "JUEVES", "inicio": 11, "fin": 13, "aula": "SALON-206" }
+      ]
+    },
+    {
+      "seccionId": "SEC-IDI1-A",
+      "asignaturaId": "IDI-301",
+      "asignaturaNombre": "Idiomas 1",
+      "inscritosSimulados": 40,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 11",
+      "aula": "LAB-ING-1",
+      "sesiones": [
+        { "dia": "MARTES", "inicio": 14, "fin": 16, "aula": "LAB-ING-1" }
+      ]
+    },
+    {
+      "seccionId": "SEC-DSI3-A",
+      "asignaturaId": "SIS-301",
+      "asignaturaNombre": "Desarrollo de sistemas de informacion 3",
+      "inscritosSimulados": 38,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 12",
+      "aula": "LAB-INFO-4",
+      "sesiones": [
+        { "dia": "MARTES", "inicio": 16, "fin": 18, "aula": "LAB-INFO-4" },
+        { "dia": "JUEVES", "inicio": 16, "fin": 18, "aula": "LAB-INFO-4" }
+      ]
+    },
+    {
+      "seccionId": "SEC-ED-A",
+      "asignaturaId": "SIS-302",
+      "asignaturaNombre": "Estructuras de datos",
+      "inscritosSimulados": 35,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 1",
+      "aula": "LAB-INFO-1",
+      "sesiones": [
+        { "dia": "VIERNES", "inicio": 7, "fin": 9, "aula": "LAB-INFO-1" }
+      ]
+    },
+    {
+      "seccionId": "SEC-ELEC2-A",
+      "asignaturaId": "ELE-301",
+      "asignaturaNombre": "Electiva libre 2",
+      "inscritosSimulados": 25,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 2",
+      "aula": "SALON-207",
+      "sesiones": [
+        { "dia": "SABADO", "inicio": 7, "fin": 9, "aula": "SALON-207" }
+      ]
+    },
+    {
+      "seccionId": "SEC-ANT-MATB-A",
+      "asignaturaId": "ANT-101",
+      "asignaturaNombre": "Matematicas basicas",
+      "inscritosSimulados": 38,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 1",
+      "aula": "SALON-301",
+      "sesiones": [
+        { "dia": "LUNES", "inicio": 7, "fin": 9, "aula": "SALON-301" },
+        { "dia": "MIERCOLES", "inicio": 7, "fin": 9, "aula": "SALON-301" }
+      ]
+    },
+    {
+      "seccionId": "SEC-ANT-LOG-A",
+      "asignaturaId": "ANT-102",
+      "asignaturaNombre": "Logica matematica",
+      "inscritosSimulados": 34,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 2",
+      "aula": "SALON-302",
+      "sesiones": [
+        { "dia": "MARTES", "inicio": 7, "fin": 9, "aula": "SALON-302" }
+      ]
+    },
+    {
+      "seccionId": "SEC-ANT-DISC-A",
+      "asignaturaId": "ANT-103",
+      "asignaturaNombre": "Matematicas discretas",
+      "inscritosSimulados": 35,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 3",
+      "aula": "SALON-303",
+      "sesiones": [
+        { "dia": "JUEVES", "inicio": 7, "fin": 9, "aula": "SALON-303" },
+        { "dia": "SABADO", "inicio": 7, "fin": 9, "aula": "SALON-303" }
+      ]
+    },
+    {
+      "seccionId": "SEC-ANT-FP-A",
+      "asignaturaId": "ANT-104",
+      "asignaturaNombre": "Fundamentos de programacion",
+      "inscritosSimulados": 40,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 4",
+      "aula": "LAB-INFO-1",
+      "sesiones": [
+        { "dia": "LUNES", "inicio": 9, "fin": 11, "aula": "LAB-INFO-1" },
+        { "dia": "MIERCOLES", "inicio": 9, "fin": 11, "aula": "LAB-INFO-1" }
+      ]
+    },
+    {
+      "seccionId": "SEC-ANT-INTRO-A",
+      "asignaturaId": "ANT-105",
+      "asignaturaNombre": "Introduccion a la ingenieria de sistemas",
+      "inscritosSimulados": 36,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 5",
+      "aula": "SALON-304",
+      "sesiones": [
+        { "dia": "MARTES", "inicio": 9, "fin": 11, "aula": "SALON-304" }
+      ]
+    },
+    {
+      "seccionId": "SEC-ANT-PENS-A",
+      "asignaturaId": "ANT-106",
+      "asignaturaNombre": "Est. del pensamiento I. Procesos logicos de expresion",
+      "inscritosSimulados": 30,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 6",
+      "aula": "SALON-305",
+      "sesiones": [
+        { "dia": "VIERNES", "inicio": 9, "fin": 11, "aula": "SALON-305" }
+      ]
+    },
+    {
+      "seccionId": "SEC-ANT-ELEC-A",
+      "asignaturaId": "ANT-107",
+      "asignaturaNombre": "Electiva 1",
+      "inscritosSimulados": 28,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 7",
+      "aula": "SALON-306",
+      "sesiones": [
+        { "dia": "VIERNES", "inicio": 14, "fin": 16, "aula": "SALON-306" }
+      ]
+    },
+    {
+      "seccionId": "SEC-ANT-CALC-A",
+      "asignaturaId": "ANT-201",
+      "asignaturaNombre": "Calculo diferencial",
+      "inscritosSimulados": 37,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 1",
+      "aula": "SALON-401",
+      "sesiones": [
+        { "dia": "MARTES", "inicio": 7, "fin": 9, "aula": "SALON-401" },
+        { "dia": "JUEVES", "inicio": 7, "fin": 9, "aula": "SALON-401" }
+      ]
+    },
+    {
+      "seccionId": "SEC-ANT-ALG-A",
+      "asignaturaId": "ANT-202",
+      "asignaturaNombre": "Algebra lineal",
+      "inscritosSimulados": 39,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 2",
+      "aula": "SALON-402",
+      "sesiones": [
+        { "dia": "LUNES", "inicio": 9, "fin": 11, "aula": "SALON-402" },
+        { "dia": "MIERCOLES", "inicio": 9, "fin": 11, "aula": "SALON-402" }
+      ]
+    },
+    {
+      "seccionId": "SEC-ANT-FIS1-A",
+      "asignaturaId": "ANT-203",
+      "asignaturaNombre": "Fisica I (Mecanica)",
+      "inscritosSimulados": 33,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 3",
+      "aula": "LAB-FIS-1",
+      "sesiones": [
+        { "dia": "VIERNES", "inicio": 7, "fin": 9, "aula": "LAB-FIS-1" }
+      ]
+    },
+    {
+      "seccionId": "SEC-ANT-DIF-A",
+      "asignaturaId": "ANT-204",
+      "asignaturaNombre": "Logica difusa",
+      "inscritosSimulados": 29,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 4",
+      "aula": "SALON-403",
+      "sesiones": [
+        { "dia": "MIERCOLES", "inicio": 11, "fin": 13, "aula": "SALON-403" }
+      ]
+    },
+    {
+      "seccionId": "SEC-ANT-PROG1-A",
+      "asignaturaId": "ANT-205",
+      "asignaturaNombre": "Programacion I",
+      "inscritosSimulados": 40,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 5",
+      "aula": "LAB-SW-2",
+      "sesiones": [
+        { "dia": "LUNES", "inicio": 14, "fin": 16, "aula": "LAB-SW-2" },
+        { "dia": "MIERCOLES", "inicio": 14, "fin": 16, "aula": "LAB-SW-2" }
+      ]
+    },
+    {
+      "seccionId": "SEC-ANT-BIO-A",
+      "asignaturaId": "ANT-206",
+      "asignaturaNombre": "Seminario de bioetica",
+      "inscritosSimulados": 32,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 6",
+      "aula": "SALON-404",
+      "sesiones": [
+        { "dia": "JUEVES", "inicio": 11, "fin": 13, "aula": "SALON-404" }
+      ]
+    },
+    {
+      "seccionId": "SEC-ANT-PENS2-A",
+      "asignaturaId": "ANT-207",
+      "asignaturaNombre": "Est. del pensamiento II. Argumentacion y procesos algoritmicos",
+      "inscritosSimulados": 35,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 7",
+      "aula": "SALON-405",
+      "sesiones": [
+        { "dia": "SABADO", "inicio": 9, "fin": 11, "aula": "SALON-405" }
+      ]
+    },
+    {
+      "seccionId": "SEC-ANT-CALCI-A",
+      "asignaturaId": "ANT-301",
+      "asignaturaNombre": "Calculo integral y ecuaciones diferenciales",
+      "inscritosSimulados": 36,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 8",
+      "aula": "SALON-406",
+      "sesiones": [
+        { "dia": "MARTES", "inicio": 9, "fin": 11, "aula": "SALON-406" },
+        { "dia": "JUEVES", "inicio": 9, "fin": 11, "aula": "SALON-406" }
+      ]
+    },
+    {
+      "seccionId": "SEC-ANT-EST-A",
+      "asignaturaId": "ANT-302",
+      "asignaturaNombre": "Estadistica y probabilidad",
+      "inscritosSimulados": 33,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 9",
+      "aula": "SALON-407",
+      "sesiones": [
+        { "dia": "LUNES", "inicio": 11, "fin": 13, "aula": "SALON-407" }
+      ]
+    },
+    {
+      "seccionId": "SEC-ANT-FIS2-A",
+      "asignaturaId": "ANT-303",
+      "asignaturaNombre": "Fisica II (Electricidad)",
+      "inscritosSimulados": 34,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 10",
+      "aula": "LAB-FIS-2",
+      "sesiones": [
+        { "dia": "MIERCOLES", "inicio": 11, "fin": 13, "aula": "LAB-FIS-2" }
+      ]
+    },
+    {
+      "seccionId": "SEC-ANT-PROG2-A",
+      "asignaturaId": "ANT-304",
+      "asignaturaNombre": "Programacion II",
+      "inscritosSimulados": 41,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 11",
+      "aula": "LAB-SW-3",
+      "sesiones": [
+        { "dia": "MARTES", "inicio": 14, "fin": 16, "aula": "LAB-SW-3" },
+        { "dia": "JUEVES", "inicio": 14, "fin": 16, "aula": "LAB-SW-3" }
+      ]
+    },
+    {
+      "seccionId": "SEC-ANT-ED-A",
+      "asignaturaId": "ANT-305",
+      "asignaturaNombre": "Estructuras de datos",
+      "inscritosSimulados": 38,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 12",
+      "aula": "LAB-INFO-2",
+      "sesiones": [
+        { "dia": "VIERNES", "inicio": 9, "fin": 11, "aula": "LAB-INFO-2" }
+      ]
+    },
+    {
+      "seccionId": "SEC-ANT-PN1-A",
+      "asignaturaId": "ANT-306",
+      "asignaturaNombre": "Proyecto nucleo I",
+      "inscritosSimulados": 30,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 1",
+      "aula": "SALON-408",
+      "sesiones": [
+        { "dia": "LUNES", "inicio": 16, "fin": 18, "aula": "SALON-408" }
+      ]
+    },
+    {
+      "seccionId": "SEC-ANT-PENS3-A",
+      "asignaturaId": "ANT-307",
+      "asignaturaNombre": "Est. del pensamiento III. Descripcion y analisis de procesos multicausales",
+      "inscritosSimulados": 28,
+      "cupoMaximo": 44,
+      "docente": "Docente Asignado 2",
+      "aula": "SALON-409",
+      "sesiones": [
+        { "dia": "MIERCOLES", "inicio": 16, "fin": 18, "aula": "SALON-409" }
+      ]
+    }
+  ]
+}

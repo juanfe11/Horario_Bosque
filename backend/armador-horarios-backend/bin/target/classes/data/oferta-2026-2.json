@@ -1,0 +1,223 @@
+{
+  "periodo": "2026-2",
+  "secciones": [
+    {
+      "seccionId": "SEC-101-A",
+      "asignaturaId": "ASI-101",
+      "asignaturaNombre": "Modelizacion Informacional",
+      "inscritosSimulados": 40,
+      "cupoMaximo": 44,
+      "docente": "Ing. Orlando Lopez",
+      "aula": "LAB-INFO-1",
+      "sesiones": [
+        { "dia": "LUNES", "inicio": 7, "fin": 9, "aula": "LAB-INFO-1" },
+        { "dia": "MIERCOLES", "inicio": 7, "fin": 9, "aula": "LAB-INFO-1" }
+      ]
+    },
+    {
+      "seccionId": "SEC-101-B",
+      "asignaturaId": "ASI-101",
+      "asignaturaNombre": "Modelizacion Informacional",
+      "inscritosSimulados": 44,
+      "cupoMaximo": 44,
+      "docente": "Ing. Andrea Morales",
+      "aula": "LAB-INFO-2",
+      "sesiones": [
+        { "dia": "LUNES", "inicio": 9, "fin": 11, "aula": "LAB-INFO-2" },
+        { "dia": "MIERCOLES", "inicio": 9, "fin": 11, "aula": "LAB-INFO-2" }
+      ]
+    },
+    {
+      "seccionId": "SEC-102-1",
+      "asignaturaId": "ASI-102",
+      "asignaturaNombre": "Fundamentos de Ingenieria",
+      "inscritosSimulados": 35,
+      "cupoMaximo": 44,
+      "docente": "Ing. Carlos Mendoza",
+      "aula": "SALON-301",
+      "sesiones": [
+        { "dia": "MIERCOLES", "inicio": 7, "fin": 9, "aula": "SALON-301" },
+        { "dia": "VIERNES", "inicio": 7, "fin": 9, "aula": "SALON-301" }
+      ]
+    },
+    {
+      "seccionId": "SEC-102-2",
+      "asignaturaId": "ASI-102",
+      "asignaturaNombre": "Fundamentos de Ingenieria",
+      "inscritosSimulados": 30,
+      "cupoMaximo": 44,
+      "docente": "Ing. Roberto Diaz",
+      "aula": "SALON-302",
+      "sesiones": [
+        { "dia": "MARTES", "inicio": 9, "fin": 11, "aula": "SALON-302" },
+        { "dia": "JUEVES", "inicio": 9, "fin": 11, "aula": "SALON-302" }
+      ]
+    },
+    {
+      "seccionId": "SEC-103-A",
+      "asignaturaId": "ASI-103",
+      "asignaturaNombre": "Desarrollo de Sistemas de Informacion 1",
+      "inscritosSimulados": 38,
+      "cupoMaximo": 44,
+      "docente": "Ing. Gabriel Vargas",
+      "aula": "LAB-SW-1",
+      "sesiones": [
+        { "dia": "MARTES", "inicio": 14, "fin": 16, "aula": "LAB-SW-1" },
+        { "dia": "JUEVES", "inicio": 14, "fin": 16, "aula": "LAB-SW-1" }
+      ]
+    },
+    {
+      "seccionId": "SEC-103-B",
+      "asignaturaId": "ASI-103",
+      "asignaturaNombre": "Desarrollo de Sistemas de Informacion 1",
+      "inscritosSimulados": 44,
+      "cupoMaximo": 44,
+      "docente": "Ing. Gabriel Vargas",
+      "aula": "LAB-SW-2",
+      "sesiones": [
+        { "dia": "MIERCOLES", "inicio": 20, "fin": 22, "aula": "LAB-SW-2" },
+        { "dia": "SABADO", "inicio": 9, "fin": 11, "aula": "LAB-SW-2" }
+      ]
+    },
+    {
+      "seccionId": "SEC-104-1",
+      "asignaturaId": "ASI-104",
+      "asignaturaNombre": "Matematicas 1",
+      "inscritosSimulados": 41,
+      "cupoMaximo": 44,
+      "docente": "Lic. Fernando Gomez",
+      "aula": "SALON-204",
+      "sesiones": [
+        { "dia": "LUNES", "inicio": 16, "fin": 18, "aula": "SALON-204" },
+        { "dia": "MIERCOLES", "inicio": 16, "fin": 18, "aula": "SALON-204" }
+      ]
+    },
+    {
+      "seccionId": "SEC-104-2",
+      "asignaturaId": "ASI-104",
+      "asignaturaNombre": "Matematicas 1",
+      "inscritosSimulados": 28,
+      "cupoMaximo": 44,
+      "docente": "Lic. Fernando Gomez",
+      "aula": "SALON-205",
+      "sesiones": [
+        { "dia": "JUEVES", "inicio": 14, "fin": 16, "aula": "SALON-205" },
+        { "dia": "SABADO", "inicio": 7, "fin": 9, "aula": "SALON-205" }
+      ]
+    },
+    {
+      "seccionId": "SEC-105-A",
+      "asignaturaId": "ASI-105",
+      "asignaturaNombre": "Ciencias para la Vida",
+      "inscritosSimulados": 30,
+      "cupoMaximo": 44,
+      "docente": "Dra. Patricia Reyes",
+      "aula": "AUD-1",
+      "sesiones": [
+        { "dia": "JUEVES", "inicio": 14, "fin": 16, "aula": "AUD-1" }
+      ]
+    },
+    {
+      "seccionId": "SEC-105-B",
+      "asignaturaId": "ASI-105",
+      "asignaturaNombre": "Ciencias para la Vida",
+      "inscritosSimulados": 25,
+      "cupoMaximo": 44,
+      "docente": "Dra. Patricia Reyes",
+      "aula": "AUD-2",
+      "sesiones": [
+        { "dia": "VIERNES", "inicio": 11, "fin": 13, "aula": "AUD-2" }
+      ]
+    },
+    {
+      "seccionId": "SEC-106-X",
+      "asignaturaId": "ASI-106",
+      "asignaturaNombre": "Idiomas 2",
+      "inscritosSimulados": 39,
+      "cupoMaximo": 44,
+      "docente": "Prof. Mark Spencer",
+      "aula": "LAB-ING-1",
+      "sesiones": [
+        { "dia": "LUNES", "inicio": 9, "fin": 11, "aula": "LAB-ING-1" },
+        { "dia": "MIERCOLES", "inicio": 9, "fin": 11, "aula": "LAB-ING-1" }
+      ]
+    },
+    {
+      "seccionId": "SEC-106-Y",
+      "asignaturaId": "ASI-106",
+      "asignaturaNombre": "Idiomas 2",
+      "inscritosSimulados": 32,
+      "cupoMaximo": 44,
+      "docente": "Prof. Mark Spencer",
+      "aula": "LAB-ING-2",
+      "sesiones": [
+        { "dia": "MARTES", "inicio": 16, "fin": 18, "aula": "LAB-ING-2" },
+        { "dia": "JUEVES", "inicio": 16, "fin": 18, "aula": "LAB-ING-2" }
+      ]
+    },
+    {
+      "seccionId": "SEC-201-1",
+      "asignaturaId": "ASI-201",
+      "asignaturaNombre": "Estructuras de Datos y Algoritmos",
+      "inscritosSimulados": 36,
+      "cupoMaximo": 44,
+      "docente": "Ing. Mauricio Cano",
+      "aula": "LAB-INFO-3",
+      "sesiones": [
+        { "dia": "MARTES", "inicio": 7, "fin": 9, "aula": "LAB-INFO-3" },
+        { "dia": "JUEVES", "inicio": 7, "fin": 9, "aula": "LAB-INFO-3" }
+      ]
+    },
+    {
+      "seccionId": "SEC-202-1",
+      "asignaturaId": "ASI-202",
+      "asignaturaNombre": "Modelizacion Computacional",
+      "inscritosSimulados": 35,
+      "cupoMaximo": 44,
+      "docente": "Ing. Jaime Ospina",
+      "aula": "LAB-INFO-4",
+      "sesiones": [
+        { "dia": "LUNES", "inicio": 14, "fin": 16, "aula": "LAB-INFO-4" },
+        { "dia": "MIERCOLES", "inicio": 14, "fin": 16, "aula": "LAB-INFO-4" }
+      ]
+    },
+    {
+      "seccionId": "SEC-ANT-101-A",
+      "asignaturaId": "ASI-ANT-101",
+      "asignaturaNombre": "Introduccion a la Ingenieria de Sistemas",
+      "inscritosSimulados": 38,
+      "cupoMaximo": 44,
+      "docente": "Ing. Ricardo Solano",
+      "aula": "SALON-101",
+      "sesiones": [
+        { "dia": "LUNES", "inicio": 7, "fin": 9, "aula": "SALON-101" },
+        { "dia": "MIERCOLES", "inicio": 7, "fin": 9, "aula": "SALON-101" }
+      ]
+    },
+    {
+      "seccionId": "SEC-ANT-102-A",
+      "asignaturaId": "ASI-ANT-102",
+      "asignaturaNombre": "Calculo Diferencial",
+      "inscritosSimulados": 42,
+      "cupoMaximo": 44,
+      "docente": "Lic. Hernan Silva",
+      "aula": "SALON-102",
+      "sesiones": [
+        { "dia": "MARTES", "inicio": 9, "fin": 11, "aula": "SALON-102" },
+        { "dia": "JUEVES", "inicio": 9, "fin": 11, "aula": "SALON-102" }
+      ]
+    },
+    {
+      "seccionId": "SEC-ANT-103-A",
+      "asignaturaId": "ASI-ANT-103",
+      "asignaturaNombre": "Programacion Orientada a Objetos",
+      "inscritosSimulados": 35,
+      "cupoMaximo": 44,
+      "docente": "Ing. Claudia Romero",
+      "aula": "LAB-SW-3",
+      "sesiones": [
+        { "dia": "VIERNES", "inicio": 14, "fin": 18, "aula": "LAB-SW-3" }
+      ]
+    }
+  ]
+}

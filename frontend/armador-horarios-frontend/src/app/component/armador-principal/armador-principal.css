@@ -1,0 +1,622 @@
+.main-container {
+  max-width: 1540px;
+  margin: 20px auto 60px;
+  padding: 0 20px;
+}
+
+
+.instruction-banner {
+  background: rgb(255, 255, 255);
+  border-left: 5px solid rgb(0, 71, 49);
+  padding: 14px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.instruction-content {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 0.92rem;
+  color: rgb(55, 65, 81);
+}
+
+.instruction-icon {
+  font-size: 1.6rem;
+  color: rgb(0, 71, 49);
+}
+
+.feedback-alert {
+  font-size: 0.92rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Grilla principal de 2 columnas */
+.workspace-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 22px;
+}
+
+@media (max-width: 1200px) {
+  .workspace-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tarjeta del Cronograma */
+.schedule-card {
+  background: rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  border: 1px solid rgb(229, 231, 235);
+}
+
+.schedule-header {
+  background: rgb(0, 71, 49);
+  color: rgb(255, 255, 255);
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.schedule-header h2 {
+  font-size: 1.15rem;
+  margin: 0;
+  font-weight: 700;
+}
+
+.period-tag {
+  font-size: 0.8rem;
+  color: rgb(233, 196, 106);
+  font-weight: 600;
+}
+
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.schedule-table th,
+.schedule-table td {
+  border: 1px solid rgb(229, 231, 235);
+  text-align: center;
+  vertical-align: middle;
+}
+
+.schedule-table th {
+  background: rgb(15, 56, 37);
+  color: rgb(255, 255, 255);
+  padding: 10px 4px;
+  font-size: 0.82rem;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+}
+
+.th-hora {
+  width: 85px;
+}
+
+.cell-hora {
+  background: rgb(249, 250, 251);
+  font-size: 0.82rem;
+  padding: 8px 4px;
+  color: rgb(75, 85, 99);
+  width: 85px;
+}
+
+.hora-sub {
+  display: block;
+  font-size: 0.68rem;
+  color: rgb(156, 163, 175);
+  margin-top: 2px;
+}
+
+.cell-slot {
+  height: 84px;
+  padding: 4px;
+  background: rgb(255, 255, 255);
+  position: relative;
+  transition: background 0.15s ease;
+}
+
+.cell-slot:hover {
+  background: rgb(253, 253, 253);
+}
+
+.empty-slot {
+  height: 100%;
+  width: 100%;
+}
+
+/* Receso Institucional de Almuerzo */
+.row-receso {
+  height: 44px;
+}
+
+.cell-receso {
+  background: repeating-linear-gradient(
+    45deg,
+    rgb(255, 243, 205),
+    rgb(255, 243, 205) 12px,
+    rgb(255, 234, 167) 12px,
+    rgb(255, 234, 167) 24px
+  );
+  border: 1px dashed rgb(233, 196, 106) !important;
+  padding: 8px !important;
+}
+
+.receso-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: rgb(153, 116, 4);
+  letter-spacing: 0.5px;
+}
+
+.cell-disabled {
+  background: rgb(243, 244, 246);
+  color: rgb(156, 163, 175);
+}
+
+.no-clase-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: rgb(156, 163, 175);
+}
+
+/* Ficha de Sesion Colocada */
+.session-chip {
+  background: rgb(248, 250, 252);
+  border-radius: 6px;
+  border-left: 5px solid rgb(0, 71, 49);
+  border: 1px solid rgb(226, 232, 240);
+  border-left-width: 5px;
+  padding: 6px 8px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 0.2s ease;
+}
+
+.session-chip-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.chip-subject {
+  font-weight: 700;
+  font-size: 0.78rem;
+  color: rgb(30, 41, 59);
+  line-height: 1.15;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.btn-remove-session {
+  background: none;
+  border: none;
+  color: rgb(239, 68, 68);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 2px;
+  font-weight: 700;
+}
+
+.btn-remove-session:hover {
+  color: rgb(185, 28, 28);
+}
+
+.chip-details {
+  font-size: 0.68rem;
+  color: rgb(100, 116, 139);
+  display: flex;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.chip-time {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: rgb(0, 71, 49);
+}
+
+/* Paneles Laterales */
+.panels-column {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.panel-card {
+  background: rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgb(229, 231, 235);
+  overflow: hidden;
+}
+
+.panel-header {
+  padding: 12px 18px;
+  color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mode1-header {
+  background: rgb(15, 56, 37);
+}
+
+.mode2-header {
+  background: rgb(27, 67, 50);
+}
+
+.panel-header h3 {
+  font-size: 0.95rem;
+  margin: 0;
+  font-weight: 700;
+}
+
+.latency-badge {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: rgb(233, 196, 106);
+}
+
+.panel-body {
+  padding: 16px;
+}
+
+/* Validación Modo 1 */
+.validation-result-box {
+  padding: 12px;
+  border-radius: 8px;
+  border-left: 4px solid rgb(107, 114, 128);
+  background: rgb(249, 250, 251);
+}
+
+.validation-result-box.valido {
+  border-left-color: rgb(16, 185, 129);
+  background: rgb(236, 253, 245);
+}
+
+.validation-result-box.invalido {
+  border-left-color: rgb(239, 68, 68);
+  background: rgb(254, 242, 242);
+}
+
+.result-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.92rem;
+}
+
+.latency-text {
+  font-size: 0.72rem;
+  color: rgb(107, 114, 128);
+  margin-left: auto;
+}
+
+.result-message {
+  font-size: 0.82rem;
+  margin: 6px 0 0;
+  color: rgb(55, 65, 81);
+}
+
+.conflict-details {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(239, 68, 68, 0.3);
+  font-size: 0.78rem;
+  color: rgb(153, 27, 27);
+}
+
+.empty-validation-hint {
+  text-align: center;
+  color: rgb(156, 163, 175);
+  padding: 20px 10px;
+}
+
+.empty-validation-hint i {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+}
+
+.empty-validation-hint p {
+  font-size: 0.82rem;
+  margin: 0;
+}
+
+/* Modo 2 Combinatoria */
+.modo2-instructions {
+  font-size: 0.82rem;
+  color: rgb(75, 85, 99);
+  margin-bottom: 12px;
+}
+
+.course-selector-chips {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 200px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.btn-course-chip {
+  background: rgb(249, 250, 251);
+  border: 1px solid rgb(229, 231, 235);
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-course-chip:hover {
+  background: rgb(243, 244, 246);
+}
+
+.btn-course-chip.selected {
+  background: rgb(236, 253, 245);
+  border-color: rgb(0, 71, 49);
+  color: rgb(0, 71, 49);
+  font-weight: 600;
+}
+
+.solution-summary {
+  font-size: 0.82rem;
+  color: rgb(15, 56, 37);
+  margin-bottom: 10px;
+}
+
+.combinations-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.combination-card {
+  background: rgb(248, 250, 252);
+  border: 1px solid rgb(226, 232, 240);
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.combination-info {
+  display: flex;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.combination-sections-mini {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.mini-tag {
+  background: rgb(226, 232, 240);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  color: rgb(51, 65, 85);
+}
+
+.no-solution-box {
+  background: rgb(255, 251, 235);
+  border: 1px solid rgb(253, 230, 138);
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 0.8rem;
+  color: rgb(146, 64, 14);
+}
+
+.no-solution-box ul {
+  margin: 6px 0 0 16px;
+  padding: 0;
+}
+
+/* Bandeja Inferior de Materias */
+.tray-card {
+  background: rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgb(229, 231, 235);
+  overflow: hidden;
+}
+
+.tray-header {
+  background: rgb(249, 250, 251);
+  padding: 14px 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgb(229, 231, 235);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tray-title-group h2 {
+  font-size: 1.15rem;
+  margin: 0;
+  color: rgb(15, 56, 37);
+}
+
+.tray-subtitle {
+  font-size: 0.8rem;
+  color: rgb(107, 114, 128);
+}
+
+.semester-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.semester-filter label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgb(55, 65, 81);
+  margin: 0;
+}
+
+.semester-filter select {
+  padding: 4px 10px;
+  font-size: 0.85rem;
+  border: 1px solid rgb(209, 213, 219);
+  border-radius: 6px;
+  outline: none;
+}
+
+.tray-body {
+  padding: 20px;
+}
+
+.subjects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 16px;
+}
+
+.subject-box {
+  background: rgb(253, 253, 253);
+  border: 1px solid rgb(229, 231, 235);
+  border-top: 4px solid rgb(0, 71, 49);
+  border-radius: 8px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.subject-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.subject-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.subject-code {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: rgb(107, 114, 128);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.subject-name {
+  font-size: 0.95rem;
+  color: rgb(17, 24, 39);
+  margin: 2px 0 0;
+  font-weight: 700;
+}
+
+.credits-chip {
+  background: rgb(243, 244, 246);
+  color: rgb(55, 65, 81);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 12px;
+}
+
+.sections-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.section-item {
+  background: rgb(255, 255, 255);
+  border: 1px solid rgb(229, 231, 235);
+  border-radius: 6px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  transition: border-color 0.15s ease;
+}
+
+.section-item.en-horario {
+  background: rgb(236, 253, 245);
+  border-color: rgb(16, 185, 129);
+}
+
+.section-item.llena {
+  background: rgb(254, 242, 242);
+  border-color: rgb(254, 202, 202);
+  opacity: 0.85;
+}
+
+.section-main-info {
+  flex: 1;
+}
+
+.section-title-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+}
+
+.section-meta {
+  font-size: 0.75rem;
+  color: rgb(107, 114, 128);
+  margin-top: 2px;
+}
+
+.section-schedules {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.schedule-pill {
+  background: rgb(243, 244, 246);
+  font-size: 0.7rem;
+  color: rgb(75, 85, 99);
+  padding: 2px 6px;
+  border-radius: 4px;
+}

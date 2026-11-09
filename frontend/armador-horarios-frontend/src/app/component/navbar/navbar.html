@@ -1,0 +1,37 @@
+<header class="bosque-navbar">
+  <div class="navbar-container">
+    <div class="brand-section">
+      <div class="brand-logo">
+        <i class="fas fa-university"></i>
+      </div>
+      <div class="brand-text">
+        <span class="sub-title">UNIVERSIDAD EL BOSQUE &bull; INGENIERÍA DE SISTEMAS</span>
+        <h1 class="main-title">Armador Visual de Horarios</h1>
+      </div>
+    </div>
+
+    <div class="controls-section">
+      <div class="plan-selector-box">
+        <label for="planSelect"><i class="fas fa-graduation-cap"></i> Plan de Estudios:</label>
+        <select id="planSelect" [ngModel]="planSeleccionado" (ngModelChange)="onSelectPlan($event)" class="form-select-sm">
+          @for (p of planes; track p.id) {
+            <option [value]="p.codigoPlan">{{ p.nombre }} ({{ p.totalAsignaturas }} mat.)</option>
+          }
+          @if (planes.length === 0) {
+            <option value="PLAN-2025">Ingeniería de Sistemas - Plan 2025 (48 mat.)</option>
+            <option value="PLAN-ANTERIOR">Ingeniería de Sistemas - Plan Anterior (54 mat.)</option>
+          }
+        </select>
+      </div>
+
+      <div class="period-badge">
+        <i class="fas fa-calendar-alt"></i> Periodo 2026-2
+      </div>
+
+      <div class="stats-badge">
+        <span><i class="fas fa-book-open"></i> Créditos: <strong>{{ totalCreditos }}</strong></span>
+        <span class="ms-2"><i class="fas fa-clock"></i> Horas/sem: <strong>{{ totalHoras }}</strong></span>
+      </div>
+    </div>
+  </div>
+</header>

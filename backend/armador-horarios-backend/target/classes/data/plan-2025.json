@@ -1,0 +1,227 @@
+{
+  "planId": "PLAN-2025",
+  "planNombre": "Ingenieria de Sistemas - Plan 2025",
+  "totalAsignaturas": 48,
+  "asignaturas": [
+    {
+      "id": "MAT-101",
+      "nombre": "Matematicas 1",
+      "semestre": 1,
+      "componente": "Ciencias Basicas",
+      "creditos": 4,
+      "horasPresenciales": 4,
+      "horasIndependientes": 8,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "ING-101",
+      "nombre": "Fundamentos de ingenieria",
+      "semestre": 1,
+      "componente": "Fundamentacion",
+      "creditos": 2,
+      "horasPresenciales": 2,
+      "horasIndependientes": 4,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "BIO-101",
+      "nombre": "Ciencias para la vida",
+      "semestre": 1,
+      "componente": "Institucional",
+      "creditos": 2,
+      "horasPresenciales": 2,
+      "horasIndependientes": 4,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "HUM-101",
+      "nombre": "Estructuracion del pensamiento 1",
+      "semestre": 1,
+      "componente": "Sociohumanistica",
+      "creditos": 2,
+      "horasPresenciales": 2,
+      "horasIndependientes": 4,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "SIS-101",
+      "nombre": "Desarrollo de sistemas de informacion 1",
+      "semestre": 1,
+      "componente": "Disciplinar",
+      "creditos": 4,
+      "horasPresenciales": 4,
+      "horasIndependientes": 8,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "SIS-102",
+      "nombre": "Principios de sistemas de informacion",
+      "semestre": 1,
+      "componente": "Disciplinar",
+      "creditos": 2,
+      "horasPresenciales": 2,
+      "horasIndependientes": 4,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "MAT-201",
+      "nombre": "Matematicas 2",
+      "semestre": 2,
+      "componente": "Ciencias Basicas",
+      "creditos": 4,
+      "horasPresenciales": 4,
+      "horasIndependientes": 8,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "MAT-202",
+      "nombre": "Algebra lineal",
+      "semestre": 2,
+      "componente": "Ciencias Basicas",
+      "creditos": 2,
+      "horasPresenciales": 2,
+      "horasIndependientes": 4,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "FIS-201",
+      "nombre": "Fisica 1",
+      "semestre": 2,
+      "componente": "Ciencias Basicas",
+      "creditos": 2,
+      "horasPresenciales": 2,
+      "horasIndependientes": 4,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "ING-201",
+      "nombre": "Desafios desde las ciencias para la ingenieria 1",
+      "semestre": 2,
+      "componente": "Fundamentacion",
+      "creditos": 2,
+      "horasPresenciales": 2,
+      "horasIndependientes": 4,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "HUM-201",
+      "nombre": "Estructuracion del pensamiento 2",
+      "semestre": 2,
+      "componente": "Sociohumanistica",
+      "creditos": 2,
+      "horasPresenciales": 2,
+      "horasIndependientes": 4,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "SIS-201",
+      "nombre": "Desarrollo de sistemas de informacion 2",
+      "semestre": 2,
+      "componente": "Disciplinar",
+      "creditos": 4,
+      "horasPresenciales": 4,
+      "horasIndependientes": 8,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "ELE-201",
+      "nombre": "Electiva libre 1",
+      "semestre": 2,
+      "componente": "Libre Eleccion",
+      "creditos": 2,
+      "horasPresenciales": 2,
+      "horasIndependientes": 4,
+      "esElectiva": true,
+      "tieneOferta": true
+    },
+    {
+      "id": "MAT-301",
+      "nombre": "Bioestadistica y probabilidad",
+      "semestre": 3,
+      "componente": "Ciencias Basicas",
+      "creditos": 2,
+      "horasPresenciales": 2,
+      "horasIndependientes": 4,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "FIS-301",
+      "nombre": "Fisica 2",
+      "semestre": 3,
+      "componente": "Ciencias Basicas",
+      "creditos": 2,
+      "horasPresenciales": 2,
+      "horasIndependientes": 4,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "ING-301",
+      "nombre": "Desafios desde las ciencias para la ingenieria 2",
+      "semestre": 3,
+      "componente": "Fundamentacion",
+      "creditos": 2,
+      "horasPresenciales": 2,
+      "horasIndependientes": 4,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "IDI-301",
+      "nombre": "Idiomas 1",
+      "semestre": 3,
+      "componente": "Lenguaje",
+      "creditos": 2,
+      "horasPresenciales": 2,
+      "horasIndependientes": 4,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "SIS-301",
+      "nombre": "Desarrollo de sistemas de informacion 3",
+      "semestre": 3,
+      "componente": "Disciplinar",
+      "creditos": 4,
+      "horasPresenciales": 4,
+      "horasIndependientes": 8,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "SIS-302",
+      "nombre": "Estructuras de datos",
+      "semestre": 3,
+      "componente": "Disciplinar",
+      "creditos": 2,
+      "horasPresenciales": 2,
+      "horasIndependientes": 4,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "ELE-301",
+      "nombre": "Electiva libre 2",
+      "semestre": 3,
+      "componente": "Libre Eleccion",
+      "creditos": 2,
+      "horasPresenciales": 2,
+      "horasIndependientes": 4,
+      "esElectiva": true,
+      "tieneOferta": true
+    }
+  ]
+}

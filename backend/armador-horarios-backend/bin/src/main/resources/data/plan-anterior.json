@@ -1,0 +1,40 @@
+{
+  "planId": "PLAN-ANTERIOR",
+  "planNombre": "Ingenieria de Sistemas - Plan Anterior",
+  "totalAsignaturas": 54,
+  "asignaturas": [
+    {
+      "id": "ASI-ANT-101",
+      "nombre": "Introduccion a la Ingenieria de Sistemas",
+      "semestre": 1,
+      "componente": "Fundamentacion",
+      "creditos": 3,
+      "horasPresenciales": 4,
+      "horasIndependientes": 5,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "ASI-ANT-102",
+      "nombre": "Calculo Diferencial",
+      "semestre": 1,
+      "componente": "Ciencias Basicas",
+      "creditos": 4,
+      "horasPresenciales": 4,
+      "horasIndependientes": 8,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "ASI-ANT-103",
+      "nombre": "Programacion Orientada a Objetos",
+      "semestre": 1,
+      "componente": "Disciplinar",
+      "creditos": 3,
+      "horasPresenciales": 4,
+      "horasIndependientes": 5,
+      "esElectiva": false,
+      "tieneOferta": true
+    }
+  ]
+}

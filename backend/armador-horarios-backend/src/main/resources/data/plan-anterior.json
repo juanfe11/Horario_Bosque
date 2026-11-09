@@ -1,0 +1,238 @@
+{
+  "planId": "PLAN-ANTERIOR",
+  "planNombre": "Ingenieria de Sistemas - Plan Anterior",
+  "totalAsignaturas": 54,
+  "asignaturas": [
+    {
+      "id": "ANT-101",
+      "nombre": "Matematicas basicas",
+      "semestre": 1,
+      "componente": "Ciencias Basicas",
+      "creditos": 3,
+      "horasPresenciales": 3,
+      "horasIndependientes": 6,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "ANT-102",
+      "nombre": "Logica matematica",
+      "semestre": 1,
+      "componente": "Ciencias Basicas",
+      "creditos": 2,
+      "horasPresenciales": 2,
+      "horasIndependientes": 4,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "ANT-103",
+      "nombre": "Matematicas discretas",
+      "semestre": 1,
+      "componente": "Ciencias Basicas",
+      "creditos": 3,
+      "horasPresenciales": 3,
+      "horasIndependientes": 6,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "ANT-104",
+      "nombre": "Fundamentos de programacion",
+      "semestre": 1,
+      "componente": "Disciplinar",
+      "creditos": 3,
+      "horasPresenciales": 3,
+      "horasIndependientes": 6,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "ANT-105",
+      "nombre": "Introduccion a la ingenieria de sistemas",
+      "semestre": 1,
+      "componente": "Fundamentacion",
+      "creditos": 3,
+      "horasPresenciales": 3,
+      "horasIndependientes": 6,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "ANT-106",
+      "nombre": "Est. del pensamiento I. Procesos logicos de expresion",
+      "semestre": 1,
+      "componente": "Sociohumanistica",
+      "creditos": 1,
+      "horasPresenciales": 1,
+      "horasIndependientes": 2,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "ANT-107",
+      "nombre": "Electiva 1",
+      "semestre": 1,
+      "componente": "Libre Eleccion",
+      "creditos": 2,
+      "horasPresenciales": 2,
+      "horasIndependientes": 4,
+      "esElectiva": true,
+      "tieneOferta": true
+    },
+    {
+      "id": "ANT-201",
+      "nombre": "Calculo diferencial",
+      "semestre": 2,
+      "componente": "Ciencias Basicas",
+      "creditos": 3,
+      "horasPresenciales": 3,
+      "horasIndependientes": 6,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "ANT-202",
+      "nombre": "Algebra lineal",
+      "semestre": 2,
+      "componente": "Ciencias Basicas",
+      "creditos": 3,
+      "horasPresenciales": 3,
+      "horasIndependientes": 6,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "ANT-203",
+      "nombre": "Fisica I (Mecanica)",
+      "semestre": 2,
+      "componente": "Ciencias Basicas",
+      "creditos": 3,
+      "horasPresenciales": 3,
+      "horasIndependientes": 6,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "ANT-204",
+      "nombre": "Logica difusa",
+      "semestre": 2,
+      "componente": "Disciplinar",
+      "creditos": 2,
+      "horasPresenciales": 2,
+      "horasIndependientes": 4,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "ANT-205",
+      "nombre": "Programacion I",
+      "semestre": 2,
+      "componente": "Disciplinar",
+      "creditos": 4,
+      "horasPresenciales": 4,
+      "horasIndependientes": 8,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "ANT-206",
+      "nombre": "Seminario de bioetica",
+      "semestre": 2,
+      "componente": "Institucional",
+      "creditos": 1,
+      "horasPresenciales": 1,
+      "horasIndependientes": 2,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "ANT-207",
+      "nombre": "Est. del pensamiento II. Argumentacion y procesos algoritmicos",
+      "semestre": 2,
+      "componente": "Sociohumanistica",
+      "creditos": 1,
+      "horasPresenciales": 1,
+      "horasIndependientes": 2,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "ANT-301",
+      "nombre": "Calculo integral y ecuaciones diferenciales",
+      "semestre": 3,
+      "componente": "Ciencias Basicas",
+      "creditos": 3,
+      "horasPresenciales": 3,
+      "horasIndependientes": 6,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "ANT-302",
+      "nombre": "Estadistica y probabilidad",
+      "semestre": 3,
+      "componente": "Ciencias Basicas",
+      "creditos": 2,
+      "horasPresenciales": 2,
+      "horasIndependientes": 4,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "ANT-303",
+      "nombre": "Fisica II (Electricidad)",
+      "semestre": 3,
+      "componente": "Ciencias Basicas",
+      "creditos": 3,
+      "horasPresenciales": 3,
+      "horasIndependientes": 6,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "ANT-304",
+      "nombre": "Programacion II",
+      "semestre": 3,
+      "componente": "Disciplinar",
+      "creditos": 4,
+      "horasPresenciales": 4,
+      "horasIndependientes": 8,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "ANT-305",
+      "nombre": "Estructuras de datos",
+      "semestre": 3,
+      "componente": "Disciplinar",
+      "creditos": 3,
+      "horasPresenciales": 3,
+      "horasIndependientes": 6,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "ANT-306",
+      "nombre": "Proyecto nucleo I",
+      "semestre": 3,
+      "componente": "Integracion",
+      "creditos": 1,
+      "horasPresenciales": 1,
+      "horasIndependientes": 2,
+      "esElectiva": false,
+      "tieneOferta": true
+    },
+    {
+      "id": "ANT-307",
+      "nombre": "Est. del pensamiento III. Descripcion y analisis de procesos multicausales",
+      "semestre": 3,
+      "componente": "Sociohumanistica",
+      "creditos": 1,
+      "horasPresenciales": 1,
+      "horasIndependientes": 2,
+      "esElectiva": false,
+      "tieneOferta": true
+    }
+  ]
+}
