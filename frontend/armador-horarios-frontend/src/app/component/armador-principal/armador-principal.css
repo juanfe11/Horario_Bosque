@@ -652,3 +652,18 @@
   font-size: 0.72rem;
   color: rgb(100, 116, 139);
 }
+
+.subject-attrs {
+  display: block;
+  font-size: 0.8rem;
+  color: #455a64;
+}
+.sin-oferta {
+  background: #eceff1;
+  color: #455a64;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+}

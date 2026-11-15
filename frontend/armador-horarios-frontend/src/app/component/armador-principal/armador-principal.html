@@ -36,7 +36,7 @@
     <div class="schedule-column">
       <div class="schedule-card">
         <div class="schedule-header">
-          <h2><i class="fas fa-calendar-week"></i> Cronograma semanal de horarios (Bloques de 2 horas)</h2>
+          <h2><i class="fas fa-calendar-week"></i> Cronograma semanal de horarios</h2>
           <span class="period-tag"><i class="fas fa-clock"></i> Jornada Diurna y Nocturna</span>
         </div>
 
@@ -263,10 +263,14 @@
                 <div>
                   <span class="subject-code">{{ asig.codigo }} &bull; {{ asig.componente }}</span>
                   <h4 class="subject-name">{{ asig.nombre }}</h4>
+                  <span class="subject-attrs">Semestre {{ asig.semestre }} &bull; {{ asig.horasPresenciales }} h presenciales/semana</span>
                 </div>
                 <span class="credits-chip">{{ asig.creditos }} créd.</span>
               </div>
 
+              @if (!asig.tieneOferta || !asig.secciones || asig.secciones.length === 0) {
+                <div class="sin-oferta"><i class="fas fa-ban"></i> Sin oferta en el período</div>
+              }
 
               <div class="sections-list">
                 @for (sec of asig.secciones; track sec.id) {
