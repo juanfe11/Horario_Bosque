@@ -13,4 +13,5 @@ export interface SeccionModel {
   asignaturaId?: number;
   asignaturaNombre?: string;
   sesiones?: SesionModel[];
+  gruposEquivalentes?: SeccionModel[];
 }

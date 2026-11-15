@@ -51,55 +51,34 @@
               </tr>
             </thead>
             <tbody>
-              @for (bloque of bloquesHorarios; track bloque.id) {
+              @for (hora of horasGrid; track hora) {
+                <tr>
+                  <td class="cell-hora">
+                    <strong>{{ hora }}:00</strong>
+                  </td>
 
-                @if (bloque.esAlmuerzo) {
-                  <tr class="row-receso">
-                    <td class="cell-hora">{{ bloque.horaInicio }} pm</td>
-                    <td [attr.colspan]="diasSemana.length" class="cell-receso">
-                      <div class="receso-label">
-                        <i class="fas fa-utensils"></i> RECESO INSTITUCIONAL DE ALMUERZO (13:00 - 14:00) - FRANJA PROTEGIDA
-                      </div>
-                    </td>
-                  </tr>
-                } @else {
-                  <tr>
-                    <td class="cell-hora">
-                      <strong>{{ bloque.horaInicio > 12 ? (bloque.horaInicio - 12) + ' pm' : bloque.horaInicio + ' am' }}</strong>
-                      <span class="hora-sub">{{ bloque.etiqueta }}</span>
-                    </td>
-
-                    @for (dia of diasSemana; track dia) {
-
-                      @if (dia === 'SABADO' && bloque.horaFin > 13) {
-                        <td class="cell-disabled">
-                          <span class="no-clase-tag">NO CLASE</span>
-                        </td>
-                      } @else {
-
-                        <td class="cell-slot">
-                          @if (obtenerSeccionEnCelda(dia, bloque.horaInicio, bloque.horaFin); as sec) {
-                            <div class="session-chip" [style.borderLeftColor]="obtenerColorSeccion(sec)">
-                              <div class="session-chip-header">
-                                <span class="chip-subject">{{ sec.asignaturaNombre || sec.codigoSeccion }}</span>
-                                <button class="btn-remove-session" (click)="removerSeccion(sec.id)" title="Devolver a la bandeja">&times;</button>
-                              </div>
-                              <div class="chip-details">
-                                <span><i class="fas fa-tag"></i> Sec {{ sec.codigoSeccion }}</span>
-                                <span><i class="fas fa-door-open"></i> {{ sec.aula }}</span>
-                              </div>
-                              <div class="chip-time">
-                                <i class="fas fa-clock"></i> {{ bloque.horaInicio }}:00 - {{ bloque.horaFin }}:00
-                              </div>
-                            </div>
-                          } @else {
-                            <div class="empty-slot"></div>
-                          }
-                        </td>
-                      }
+                  @for (dia of diasSemana; track dia) {
+                    @if (seccionQueEmpieza(dia, hora); as sec) {
+                      <td class="cell-slot con-sesion" [attr.rowspan]="duracionSesion(sec, dia, hora)">
+                        <div class="session-chip" [style.borderLeftColor]="obtenerColorSeccion(sec)">
+                          <div class="session-chip-header">
+                            <span class="chip-subject">{{ sec.asignaturaNombre || sec.codigoSeccion }}</span>
+                            <button class="btn-remove-session" (click)="removerSeccion(sec.id)" title="Devolver a la bandeja">&times;</button>
+                          </div>
+                          <div class="chip-details">
+                            <span><i class="fas fa-tag"></i> Sec {{ sec.codigoSeccion }}</span>
+                            <span><i class="fas fa-door-open"></i> {{ sec.aula }}</span>
+                          </div>
+                          <div class="chip-time">
+                            <i class="fas fa-clock"></i> {{ hora }}:00 - {{ hora + duracionSesion(sec, dia, hora) }}:00
+                          </div>
+                        </div>
+                      </td>
+                    } @else if (!estaCubierta(dia, hora)) {
+                      <td class="cell-slot"><div class="empty-slot"></div></td>
                     }
-                  </tr>
-                }
+                  }
+                </tr>
               }
             </tbody>
           </table>
@@ -184,23 +163,45 @@
           @if (resultadoBusqueda) {
             <div class="search-results-section mt-3">
               @if (resultadoBusqueda.haySolucion) {
+
+
                 <div class="solution-summary">
-                  <i class="fas fa-star text-warning"></i> Se encontraron <strong>{{ resultadoBusqueda.totalCombinaciones }}</strong> combinaciones válidas en <strong>{{ latenciaBusquedaMs }} ms</strong>:
+                  <i class="fas fa-star text-warning"></i> Se encontraron <strong>{{ resultadoBusqueda.totalCombinaciones }}</strong> combinaciones válidas en <strong>{{ latenciaBusquedaMs }} ms</strong>
+                  @if (resultadoBusqueda.totalCombinaciones > resultadoBusqueda.combinaciones.length) {
+                    (mostrando las {{ resultadoBusqueda.combinaciones.length }} con menos huecos)
+                  }:
                 </div>
 
                 <div class="combinations-list">
-                  @for (comb of resultadoBusqueda.combinaciones; track $index) {
+                  @for (comb of resultadoBusqueda.combinaciones; track $index; let i = $index) {
                     <div class="combination-card">
                       <div class="combination-info">
-                        <strong>Opción {{ $index + 1 }}</strong>
+                        <strong>Opción {{ i + 1 }}</strong>
                         <span class="badge bg-success ms-2">{{ comb.totalHuecos }} horas de huecos</span>
+                        @if (comb.equivalente) {
+                          <span class="badge bg-secondary ms-1" title="Hay otra opción con la misma cantidad de huecos">Equivalente</span>
+                        }
                       </div>
                       <div class="combination-sections-mini">
                         @for (sec of comb.secciones; track sec.id) {
-                          <span class="mini-tag">{{ sec.asignaturaNombre || sec.codigoSeccion }} ({{ sec.codigoSeccion }})</span>
+                          <div class="grupo-row">
+                            <span class="mini-tag">{{ sec.asignaturaNombre || sec.codigoSeccion }}</span>
+                            @if (sec.gruposEquivalentes && sec.gruposEquivalentes.length > 1) {
+                              <select class="form-select form-select-sm grupo-select"
+                                      (change)="elegirGrupo(i, sec, $any($event.target).value)">
+                                @for (g of sec.gruposEquivalentes; track g.id) {
+                                  <option [value]="g.id" [selected]="g.id === grupoElegido(i, sec).id">
+                                    {{ nombreGrupo(g.codigoSeccion) }} → {{ g.docente }} ({{ g.cuposDisponibles }} cupos)
+                                  </option>
+                                }
+                              </select>
+                            } @else {
+                              <span class="grupo-unico">{{ nombreGrupo(sec.codigoSeccion) }} → {{ sec.docente }}</span>
+                            }
+                          </div>
                         }
                       </div>
-                      <button class="btn btn-sm btn-outline-success mt-2" (click)="cargarCombinacion(comb)">
+                      <button class="btn btn-sm btn-outline-success mt-2" (click)="cargarCombinacion(comb, i)">
                         <i class="fas fa-check"></i> Cargar al cronograma
                       </button>
                     </div>

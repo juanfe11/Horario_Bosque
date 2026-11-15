@@ -9,6 +9,7 @@ export interface CombinacionModel {
   totalHuecos: number;
   esValida: boolean;
   huecosPorDia: { [key: string]: number };
+  equivalente?: boolean;
 }
 
 export interface ResultadoBusquedaModel {

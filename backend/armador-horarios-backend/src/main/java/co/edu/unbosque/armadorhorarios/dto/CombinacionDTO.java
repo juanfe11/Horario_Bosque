@@ -11,6 +11,7 @@ public class CombinacionDTO {
 	private int totalHuecos;
 	private boolean esValida;
 	private Map<String, Integer> huecosPorDia = new HashMap<>();
+	private boolean equivalente;   
 
 	public CombinacionDTO() {
 	}
@@ -53,6 +54,15 @@ public class CombinacionDTO {
 
 	public void setHuecosPorDia(Map<String, Integer> huecosPorDia) {
 		this.huecosPorDia = huecosPorDia;
+	}
+	
+	
+	public boolean isEquivalente() {
+		return equivalente;
+	}
+
+	public void setEquivalente(boolean equivalente) {
+		this.equivalente = equivalente;
 	}
 
 	@Override

@@ -125,7 +125,7 @@
 }
 
 .cell-slot {
-  height: 84px;
+  height: 42px;
   padding: 4px;
   background: rgb(255, 255, 255);
   position: relative;
@@ -619,4 +619,36 @@
   color: rgb(75, 85, 99);
   padding: 2px 6px;
   border-radius: 4px;
+}
+
+
+/* Tarjeta que ocupa varias filas de 1 hora */
+.cell-slot.con-sesion {
+  padding: 0;
+}
+
+.cell-slot.con-sesion .session-chip {
+  position: absolute;
+  inset: 3px;
+  height: auto;
+  overflow: hidden;
+}
+
+.grupo-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.grupo-select {
+  max-width: 280px;
+  font-size: 0.72rem;
+  padding: 2px 6px;
+}
+
+.grupo-unico {
+  font-size: 0.72rem;
+  color: rgb(100, 116, 139);
 }

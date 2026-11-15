@@ -17,6 +17,7 @@ public class SeccionDTO {
 	private Long asignaturaId;
 	private String asignaturaNombre;
 	private List<SesionDTO> sesiones = new ArrayList<>();
+	private List<SeccionDTO> gruposEquivalentes = new ArrayList<>();  
 
 	public SeccionDTO() {
 	}
@@ -149,6 +150,14 @@ public class SeccionDTO {
 
 	public void setSesiones(List<SesionDTO> sesiones) {
 		this.sesiones = sesiones;
+	}
+	
+	public List<SeccionDTO> getGruposEquivalentes() {
+		return gruposEquivalentes;
+	}
+
+	public void setGruposEquivalentes(List<SeccionDTO> gruposEquivalentes) {
+		this.gruposEquivalentes = gruposEquivalentes;
 	}
 
 	@Override

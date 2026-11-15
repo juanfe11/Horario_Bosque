@@ -14,4 +14,6 @@ public interface SeccionRepository extends JpaRepository<Seccion, Long> {
     Optional<Seccion> findByCodigoSeccion(String codigoSeccion);
 
     List<Seccion> findByAsignaturaIdAndInscritosSimuladosLessThan(Long asignaturaId, Integer cupoMaximo);
+
+    List<Seccion> findByAsignaturaIdOrderByIdAsc(Long asignaturaId);
 }

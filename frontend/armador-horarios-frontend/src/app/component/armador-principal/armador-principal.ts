@@ -39,6 +39,7 @@ export class ArmadorPrincipalComponent implements OnInit {
 
   resultadoValidacion: ResultadoValidacionModel | null = null;
   latenciaValidacionMs: number = 0;
+  eleccionGrupo: { [clave: string]: number } = {};
   mensajeFeedback: string = '';
   tipoFeedback: string = '';
 
@@ -182,6 +183,38 @@ export class ArmadorPrincipalComponent implements OnInit {
     return null;
   }
 
+  // Filas de 1 hora: de 7:00 a 21:00 (la ultima fila termina a las 22:00)
+  horasGrid: number[] = Array.from({ length: 15 }, (_, i) => i + 7);
+
+  private mismoDia(ses: SesionModel, dia: string): boolean {
+    return !!ses.dia && ses.dia.trim().toUpperCase() === dia;
+  }
+
+  // Seccion que tiene una sesion que EMPIEZA en este dia y hora
+  seccionQueEmpieza(dia: string, hora: number): SeccionModel | null {
+    for (const sec of this.seccionesEnHorario) {
+      for (const ses of sec.sesiones ?? []) {
+        if (this.mismoDia(ses, dia) && ses.horaInicio === hora) {
+          return sec;
+        }
+      }
+    }
+    return null;
+  }
+
+  // Cuantas horas dura esa sesion (cuantas filas ocupa la tarjeta)
+  duracionSesion(sec: SeccionModel, dia: string, hora: number): number {
+    const ses = (sec.sesiones ?? []).find((s) => this.mismoDia(s, dia) && s.horaInicio === hora);
+    return ses ? ses.horaFin - ses.horaInicio : 1;
+  }
+
+  // true si una sesion que empezo antes todavia ocupa esta hora (la tarjeta de arriba ya la cubre)
+  estaCubierta(dia: string, hora: number): boolean {
+    return this.seccionesEnHorario.some((sec) =>
+      (sec.sesiones ?? []).some((s) => this.mismoDia(s, dia) && s.horaInicio < hora && s.horaFin > hora)
+    );
+  }
+
 
   obtenerColorSeccion(sec: SeccionModel): string {
     const asig = this.asignaturasDisponibles.find((a) => a.id === sec.asignaturaId || a.nombre === sec.asignaturaNombre);
@@ -219,6 +252,7 @@ export class ArmadorPrincipalComponent implements OnInit {
 
     this.buscandoCombinaciones = true;
     this.resultadoBusqueda = null;
+    this.eleccionGrupo = {};
     const tInicio = performance.now();
 
     this.horarioService.postBuscarCombinaciones({ asignaturasIds: this.asignaturasSeleccionadasModo2 }).subscribe({
@@ -235,8 +269,43 @@ export class ArmadorPrincipalComponent implements OnInit {
     });
   }
 
-  cargarCombinacion(comb: CombinacionModel): void {
-    this.seccionesEnHorario = [...comb.secciones];
+  // Grupo que esta escogido en una tarjeta (por defecto, el primero)
+  grupoElegido(indice: number, sec: SeccionModel): SeccionModel {
+    const idElegido = this.eleccionGrupo[`${indice}-${sec.id}`];
+    return (sec.gruposEquivalentes ?? []).find((g) => g.id === idElegido) ?? sec;
+  }
+
+  elegirGrupo(indice: number, sec: SeccionModel, grupoId: string | number): void {
+    this.eleccionGrupo[`${indice}-${sec.id}`] = Number(grupoId);
+  }
+
+  // "SEC-20994-G1" -> "G1"
+  nombreGrupo(codigoSeccion: string): string {
+    return codigoSeccion.split('-').pop() ?? codigoSeccion;
+  }
+
+  // Misma seccion (mismas sesiones) pero con los datos del grupo escogido
+  private seccionConGrupo(sec: SeccionModel, grupo: SeccionModel): SeccionModel {
+    if (grupo.id === sec.id) {
+      return sec;
+    }
+    return {
+      ...sec,
+      id: grupo.id,
+      codigoSeccion: grupo.codigoSeccion,
+      docente: grupo.docente,
+      aula: grupo.aula,
+      inscritosSimulados: grupo.inscritosSimulados,
+      cupoMaximo: grupo.cupoMaximo,
+      tolerancia: grupo.tolerancia,
+      estaLlena: grupo.estaLlena,
+      cuposDisponibles: grupo.cuposDisponibles,
+      sesiones: (sec.sesiones ?? []).map((s) => ({ ...s, seccionId: grupo.id, codigoSeccion: grupo.codigoSeccion }))
+    };
+  }
+
+  cargarCombinacion(comb: CombinacionModel, indice: number): void {
+    this.seccionesEnHorario = comb.secciones.map((sec) => this.seccionConGrupo(sec, this.grupoElegido(indice, sec)));
     this.mostrarFeedback('Combinación cargada al cronograma semanal exitosamente.', 'success');
     this.cdr.detectChanges();
   }

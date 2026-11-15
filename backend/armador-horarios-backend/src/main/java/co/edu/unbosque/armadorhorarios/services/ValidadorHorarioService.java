@@ -62,21 +62,8 @@ public class ValidadorHorarioService {
             );
         }
 
-        //  Verificación de horario almuerzo y sabado tarde
+        // Verificación del rango horario de cada sesión
         for (Sesion ses : candidata.getSesiones()) {
-            try {
-                LanzadorExcepciones.verificarNoAlmuerzo(ses.getDia(), ses.getHoraInicio(), ses.getHoraFin());
-            } catch (AlmuerzoInvalidoException e) {
-                return new ResultadoValidacionDTO(
-                        false,
-                        2,
-                        e.getMessage(),
-                        candidata.getAsignatura() != null ? candidata.getAsignatura().getNombre() : candidata.getCodigoSeccion(),
-                        ses.getDia() + " " + ses.getHoraInicio() + ":00 - " + ses.getHoraFin() + ":00",
-                        seccionService.convertirADTO(candidata)
-                );
-            }
-
             try {
                 LanzadorExcepciones.verificarBloqueValido(ses.getDia(), ses.getHoraInicio(), ses.getHoraFin());
             } catch (BloqueInvalidoException e) {

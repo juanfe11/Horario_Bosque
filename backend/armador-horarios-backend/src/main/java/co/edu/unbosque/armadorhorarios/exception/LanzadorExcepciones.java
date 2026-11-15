@@ -20,9 +20,6 @@ public class LanzadorExcepciones {
 
     public static void verificarBloqueValido(String dia, int inicio, int fin)
             throws BloqueInvalidoException {
-        if (dia != null && dia.trim().equalsIgnoreCase("SABADO") && fin > 13) {
-            throw new BloqueInvalidoException("No se permiten clases los sabados en jornada de la tarde (posterior a 13:00).");
-        }
         if (inicio < 7 || fin > 22 || inicio >= fin) {
             throw new BloqueInvalidoException(dia, inicio, fin);
         }

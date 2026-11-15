@@ -69,3 +69,6 @@ temp/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Configuracion local del backend
+/backend/armador-horarios-backend/src/main/resources/application.properties
