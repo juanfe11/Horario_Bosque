@@ -139,25 +139,49 @@ public class DataInitializer implements CommandLineRunner {
     }
 
     private void cargarSemestre1Comun(PlanEstudios plan, String suf) {
-        // Desarrollo de sistemas de informacion 1
-        Asignatura dsi1 = asignatura("21092", "Desarrollo de sistemas de informacion 1", 1, "Disciplinar", 6, plan, suf);
-        secciones(dsi1, "G1", "Helio Ramirez", "LUNES 7", "MARTES 7", "JUEVES 7");
-        secciones(dsi1, "G2", "David Rodriguez", "LUNES 7", "MARTES 7", "JUEVES 7");
-        secciones(dsi1, "G3", "Helio Ramirez", "LUNES 7", "MARTES 9", "JUEVES 9");
-        secciones(dsi1, "G4", "David Rodriguez", "LUNES 7", "MARTES 9", "JUEVES 9");
+        // Desarrollo de sistemas de informacion 1 
+        boolean esPlan2025 = "PLAN-2025".equals(plan.getCodigoPlan());
+        Asignatura dsi1 = asignatura("21092", "Desarrollo de sistemas de informacion 1", 1, "Disciplinar",
+                esPlan2025 ? 4 : 6, plan, suf);
+        if (esPlan2025) {
+            secciones(dsi1, "G1", "Helio Ramirez", "LUNES 7", "MARTES 7");
+            secciones(dsi1, "G2", "David Rodriguez", "LUNES 7", "MARTES 7");
+            secciones(dsi1, "G3", "Helio Ramirez", "LUNES 7", "MARTES 9");
+            secciones(dsi1, "G4", "David Rodriguez", "LUNES 7", "MARTES 9");
+        } else {
+            secciones(dsi1, "G1", "Helio Ramirez", "LUNES 7", "MARTES 7", "JUEVES 7");
+            secciones(dsi1, "G2", "David Rodriguez", "LUNES 7", "MARTES 7", "JUEVES 7");
+            secciones(dsi1, "G3", "Helio Ramirez", "LUNES 7", "MARTES 9", "JUEVES 9");
+            secciones(dsi1, "G4", "David Rodriguez", "LUNES 7", "MARTES 9", "JUEVES 9");
+        }
 
         // Principios de sistemas de informacion
-        Asignatura psi = asignatura("21117", "Principios de sistemas de informacion", 1, "Disciplinar", 4, plan, suf);
-        secciones(psi, "G1", "Alejandro Lopez", "MARTES 7", "JUEVES 7");
-        secciones(psi, "G2", null, "MARTES 7", "JUEVES 7");
-        secciones(psi, "G3", "Alejandro Lopez", "MARTES 9", "JUEVES 9");
-        secciones(psi, "G4", "Carlos Delgado", "MARTES 9", "JUEVES 9");
+        Asignatura psi = asignatura("21117", "Principios de sistemas de informacion", 1, "Disciplinar",
+                esPlan2025 ? 2 : 4, plan, suf);
+        if (esPlan2025) {
+            secciones(psi, "G1", "Alejandro Lopez", "JUEVES 7");
+            secciones(psi, "G2", null, "JUEVES 7");
+            secciones(psi, "G3", "Alejandro Lopez", "JUEVES 9");
+            secciones(psi, "G4", "Carlos Delgado", "JUEVES 9");
+        } else {
+            secciones(psi, "G1", "Alejandro Lopez", "MARTES 7", "JUEVES 7");
+            secciones(psi, "G2", null, "MARTES 7", "JUEVES 7");
+            secciones(psi, "G3", "Alejandro Lopez", "MARTES 9", "JUEVES 9");
+            secciones(psi, "G4", "Carlos Delgado", "MARTES 9", "JUEVES 9");
+        }
 
         // Fundamentos de ingenieria
-        Asignatura fund = asignatura("20959", "Fundamentos de ingenieria", 1, "Fundamentacion", 4, plan, suf);
-        secciones(fund, "G1,G2", null, "MIERCOLES 8", "VIERNES 8");
-        secciones(fund, "G3,G4", null, "MIERCOLES 10", "VIERNES 10");
-        secciones(fund, "G5,G6,G7", null, "MIERCOLES 13", "VIERNES 13");
+        Asignatura fund = asignatura("20959", "Fundamentos de ingenieria", 1, "Fundamentacion",
+                esPlan2025 ? 2 : 4, plan, suf);
+        if (esPlan2025) {
+            secciones(fund, "G1,G2", null, "MIERCOLES 8");
+            secciones(fund, "G3,G4", null, "MIERCOLES 10");
+            secciones(fund, "G5,G6,G7", null, "MIERCOLES 13");
+        } else {
+            secciones(fund, "G1,G2", null, "MIERCOLES 8", "VIERNES 8");
+            secciones(fund, "G3,G4", null, "MIERCOLES 10", "VIERNES 10");
+            secciones(fund, "G5,G6,G7", null, "MIERCOLES 13", "VIERNES 13");
+        }
 
         // Ciencias para la vida
         Asignatura cien = asignatura("20952", "Ciencias para la vida", 1, "Institucional", 2, plan, suf);
@@ -241,7 +265,7 @@ public class DataInitializer implements CommandLineRunner {
         secciones(ed, "G2", "Gabriel Gutierrez", "LUNES 9", "VIERNES 16");
         secciones(ed, "G3", "David Rodriguez", "MIERCOLES 7", "VIERNES 7");
 
-        // Idiomas 1 (el horario no trae codigo ni grupos)
+        // Idiomas 1 
         Asignatura idi1 = asignatura("IDI-301", "Idiomas 1", 3, "Lenguaje", 4, plan, suf);
         secciones(idi1, "G1", null, "MARTES 9", "JUEVES 9");
         secciones(idi1, "G2", null, "LUNES 16", "MIERCOLES 16");
@@ -429,8 +453,6 @@ public class DataInitializer implements CommandLineRunner {
 
     // Semestre 9 - Plan 2025 (16 creditos)
     private void cargarSemestre9(PlanEstudios plan) {
-        // El plan asigna 12 creditos a Trabajo de grado. Para el simulador
-        // se reparten en seis sesiones de 2 horas; NO son horarios oficiales.
         Asignatura trabajoGrado = asignatura("P25-901", "Trabajo de grado", 9, "Profundizacion", 12, plan, "");
         secciones(trabajoGrado, "G1", "Docente Asignado 1",
                 "LUNES 7", "LUNES 9", "MARTES 7", "MARTES 9", "MIERCOLES 7", "MIERCOLES 9");
@@ -654,7 +676,7 @@ public class DataInitializer implements CommandLineRunner {
         cargarAntEnfasisJueves(plan, 9, ANT + "-S9");
     }
 
-    // Materias de enfasis que se repiten en varios semestres (una copia por semestre)
+    // Materias de enfasis que se repiten en varios semestres 
     private void cargarAntEnfasis(PlanEstudios plan, int semestre, String suf) {
         // Materias de enfasis - miercoles 18
         Asignatura bigData = asignatura("17453", "Big Data and Analytics", semestre, "Disciplinar", 2, plan, suf);
