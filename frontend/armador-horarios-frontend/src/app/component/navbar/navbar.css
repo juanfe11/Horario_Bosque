@@ -1,98 +1,154 @@
 .bosque-navbar {
-  background: linear-gradient(135deg, rgb(0, 71, 49) 0%, rgb(15, 56, 37) 100%);
-  color: rgb(255, 255, 255);
-  padding: 14px 28px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
-  border-bottom: 3px solid rgb(233, 196, 106);
+  background: #004731;
+  color: #fff;
+  border-bottom: 2px solid #e98b39;
+  padding: 14px 22px;
 }
 
 .navbar-container {
-  max-width: 1500px;
+  max-width: 1600px;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   flex-wrap: wrap;
-  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px 24px;
 }
 
 .brand-section {
+  min-width: 0;
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 13px;
 }
 
 .brand-logo {
-  font-size: 2.2rem;
-  color: rgb(233, 196, 106);
+  flex: 0 0 44px;
+  width: 44px;
+  height: 51px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.brand-logo-img {
+  display: block;
+  width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.brand-text { min-width: 0; }
 
 .brand-text .sub-title {
   display: block;
-  font-size: 0.72rem;
-  letter-spacing: 1.2px;
-  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.67rem;
   font-weight: 600;
-  text-transform: uppercase;
+  letter-spacing: 0.075em;
+  line-height: 1.4;
+  color: #d5e5dc;
 }
 
 .brand-text .main-title {
-  font-size: 1.45rem;
-  margin: 0;
-  font-weight: 800;
-  color: rgb(255, 255, 255);
-  letter-spacing: -0.3px;
+  margin: 3px 0 0;
+  color: #fff;
+  font-size: clamp(1.12rem, 1.4vw, 1.42rem);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
 }
 
 .controls-section {
+  min-width: 0;
   display: flex;
-  align-items: center;
-  gap: 16px;
   flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.plan-selector-box,
+.period-badge,
+.stats-badge {
+  min-height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.075);
 }
 
 .plan-selector-box {
   display: flex;
   align-items: center;
-  gap: 8px;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 6px 12px;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  gap: 9px;
+  padding: 5px 8px 5px 12px;
+  min-width: 0;
 }
 
 .plan-selector-box label {
-  font-size: 0.85rem;
+  color: #e0ebe4;
   margin: 0;
-  color: rgb(233, 196, 106);
-  font-weight: 600;
+  font-weight: 500;
+  font-size: 0.78rem;
+  white-space: nowrap;
 }
 
 .plan-selector-box select {
-  background: rgb(255, 255, 255);
-  color: rgb(31, 41, 55);
-  border: none;
-  font-size: 0.85rem;
-  font-weight: 600;
-  padding: 4px 10px;
+  width: min(350px, 38vw);
+  max-width: 100%;
+  min-width: 170px;
+  padding: 6px 9px;
+  background: #fff;
+  border: 1px solid #cfdcd3;
   border-radius: 4px;
-  outline: none;
+  color: #20372b;
+  font-size: 0.82rem;
+  font-weight: 550;
+  line-height: 1.35;
+}
+
+.plan-selector-box select:focus-visible {
+  outline: 2px solid #ffb864;
+  outline-offset: 2px;
 }
 
 .period-badge {
-  background: rgb(233, 196, 106);
-  color: rgb(15, 56, 37);
-  font-size: 0.82rem;
-  font-weight: 700;
-  padding: 6px 12px;
-  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 11px;
+  color: #e6efe8;
+  white-space: nowrap;
+  font-size: 0.8rem;
 }
 
+.period-badge .meta-label,
+.stats-badge .stat-label { color: #d0dfd5; font-weight: 400; }
+.period-badge strong, .stats-badge strong { color: #fff; font-weight: 650; }
+
 .stats-badge {
-  background: rgba(255, 255, 255, 0.12);
-  padding: 6px 14px;
-  border-radius: 8px;
-  font-size: 0.85rem;
-  color: rgb(255, 255, 255);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.stats-badge > span { display: inline-flex; align-items: center; gap: 5px; }
+
+@media (max-width: 1100px) {
+  .controls-section { width: 100%; }
+  .plan-selector-box { flex: 1 1 330px; }
+  .plan-selector-box select { width: 100%; }
+}
+
+@media (max-width: 660px) {
+  .bosque-navbar { padding: 12px 14px; }
+  .brand-logo { flex-basis: 38px; width: 38px; height: 45px; }
+  .brand-text .sub-title { font-size: 0.58rem; letter-spacing: 0.04em; }
+  .brand-text .main-title { font-size: 1.15rem; }
+  .plan-selector-box { flex-wrap: wrap; width: 100%; }
+  .plan-selector-box label { width: 100%; }
+  .plan-selector-box select { min-width: 0; }
+  .stats-badge { flex: 1 1 auto; justify-content: space-between; }
 }

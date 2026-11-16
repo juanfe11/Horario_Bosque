@@ -8,17 +8,17 @@
 
 <div class="main-container">
 
-  <div class="instruction-banner">
+  <div class="instruction-banner" role="region" aria-label="Instrucciones para usar el horario">
     <div class="instruction-content">
-      <i class="fas fa-info-circle instruction-icon"></i>
-      <div>
-        <strong>Cómo usarlo:</strong> Selecciona una sección de la bandeja para colocarla en el cronograma semanal.
-        El sistema validará de manera reactiva (< 200 ms) el cupo, las normas institucionales y que no existan cruces.
-        Usa la <strong>&times;</strong> de cada bloque para devolverlo a la bandeja. Al cambiar de semestre o plan, el horario se reinicia.
-      </div>
+      <i class="fas fa-info-circle instruction-icon" aria-hidden="true"></i>
+      <p>
+        <strong>Organiza tu horario:</strong> elige una sección en <strong>Materias disponibles</strong>.
+        El sistema comprueba cupos y cruces; para quitarla, utiliza la &times; del bloque.
+        <span class="instruction-secondary">Cambiar de plan o semestre reinicia el cronograma.</span>
+      </p>
     </div>
-    <button class="btn btn-sm btn-outline-danger" (click)="limpiarHorario()">
-      <i class="fas fa-trash-alt"></i> Reiniciar cronograma
+    <button type="button" class="btn btn-sm btn-outline-danger" (click)="limpiarHorario()">
+      Reiniciar horario
     </button>
   </div>
 
@@ -40,15 +40,20 @@
           <span class="period-tag"><i class="fas fa-clock"></i> Jornada Diurna y Nocturna</span>
         </div>
 
+        @if (seccionesEnHorario.length === 0) {
+          <div class="schedule-empty-notice" role="status">
+            <strong>Tu horario está vacío.</strong> Agrega una sección desde Materias disponibles para comenzar.
+          </div>
+        }
         <div class="table-responsive">
           <table class="schedule-table">
             <thead>
-              <tr>
-                <th class="th-hora">HORA</th>
-                @for (dia of diasSemana; track dia) {
-                  <th>{{ dia }}</th>
-                }
-              </tr>
+            <tr>
+              <th class="th-hora">HORA</th>
+              @for (dia of diasSemana; track dia) {
+                <th>{{ dia }}</th>
+              }
+            </tr>
             </thead>
             <tbody>
               @for (hora of horasGrid; track hora) {
@@ -91,8 +96,11 @@
 
       <div class="panel-card">
         <div class="panel-header mode1-header">
-          <h3><i class="fas fa-shield-alt"></i> Estado Modo 1: Validación Reactiva</h3>
-          <span class="latency-badge"><i class="fas fa-bolt"></i> &lt; 200 ms</span>
+          <div class="panel-title">
+            <span class="panel-kicker">MODO 1 · REACTIVA</span>
+            <h3>Validación de horarios</h3>
+          </div>
+          <span class="latency-badge">&lt; 200 ms</span>
         </div>
         <div class="panel-body">
           @if (resultadoValidacion) {
@@ -116,8 +124,7 @@
             </div>
           } @else {
             <div class="empty-validation-hint">
-              <i class="fas fa-mouse-pointer"></i>
-              <p>Haz clic en cualquier sección de la bandeja para validar reactivamente su compatibilidad.</p>
+              <p>Selecciona una sección de Materias disponibles para comprobar su cupo y compatibilidad con el horario.</p>
             </div>
           }
         </div>
@@ -126,13 +133,16 @@
 
       <div class="panel-card">
         <div class="panel-header mode2-header">
-          <h3><i class="fas fa-magic"></i> Modo 2: Explorador Inteligente</h3>
-          <span class="latency-badge"><i class="fas fa-microchip"></i> Backtracking</span>
+          <div class="panel-title">
+            <span class="panel-kicker">MODO 2 · BÚSQUEDA</span>
+            <h3>Generador de combinaciones</h3>
+          </div>
+          <span class="latency-badge">Backtracking</span>
         </div>
         <div class="panel-body">
           <p class="modo2-instructions">
-            Marca hasta <strong>8 asignaturas</strong> y el algoritmo generará todas las combinaciones posibles sin cruces,
-            ordenadas por menor cantidad de <strong>huecos</strong> (ventanas libres entre clases).
+            Selecciona hasta <strong>8 materias</strong>. El sistema busca combinaciones sin cruces y
+            muestra primero las que tienen menos <strong>huecos</strong> entre clases.
           </p>
 
           <div class="course-selector-chips">
@@ -155,7 +165,7 @@
             @if (buscandoCombinaciones) {
               <span class="spinner-border spinner-border-sm me-2"></span> Calculando combinaciones...
             } @else {
-              <i class="fas fa-search"></i> Buscar combinaciones óptimas ({{ asignaturasSeleccionadasModo2.length }} sel.)
+              <i class="fas fa-search"></i> Generar combinaciones ({{ asignaturasSeleccionadasModo2.length }} sel.)
             }
           </button>
 
@@ -263,14 +273,10 @@
                 <div>
                   <span class="subject-code">{{ asig.codigo }} &bull; {{ asig.componente }}</span>
                   <h4 class="subject-name">{{ asig.nombre }}</h4>
-                  <span class="subject-attrs">Semestre {{ asig.semestre }} &bull; {{ asig.horasPresenciales }} h presenciales/semana</span>
                 </div>
                 <span class="credits-chip">{{ asig.creditos }} créd.</span>
               </div>
 
-              @if (!asig.tieneOferta || !asig.secciones || asig.secciones.length === 0) {
-                <div class="sin-oferta"><i class="fas fa-ban"></i> Sin oferta en el período</div>
-              }
 
               <div class="sections-list">
                 @for (sec of asig.secciones; track sec.id) {
