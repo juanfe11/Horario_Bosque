@@ -2,17 +2,17 @@
   <div class="navbar-container">
     <div class="brand-section">
       <div class="brand-logo">
-        <i class="fas fa-university"></i>
+        <img src="logo-universidad.png" alt="Emblema de la Universidad El Bosque" class="brand-logo-img">
       </div>
       <div class="brand-text">
-        <span class="sub-title">UNIVERSIDAD EL BOSQUE &bull; INGENIERÍA DE SISTEMAS</span>
+        <span class="sub-title">UNIVERSIDAD EL BOSQUE · INGENIERÍA DE SISTEMAS</span>
         <h1 class="main-title">Armador Visual de Horarios</h1>
       </div>
     </div>
 
     <div class="controls-section">
       <div class="plan-selector-box">
-        <label for="planSelect"><i class="fas fa-graduation-cap"></i> Plan de Estudios:</label>
+        <label for="planSelect">Plan de estudios</label>
         <select id="planSelect" [ngModel]="planSeleccionado" (ngModelChange)="onSelectPlan($event)" class="form-select-sm">
           @for (p of planes; track p.id) {
             <option [value]="p.codigoPlan">{{ p.nombre }} ({{ p.totalAsignaturas }} mat.)</option>
@@ -25,12 +25,13 @@
       </div>
 
       <div class="period-badge">
-        <i class="fas fa-calendar-alt"></i> Periodo 2026-2
+        <span class="meta-label">Período</span>
+        <strong>2026-2</strong>
       </div>
 
-      <div class="stats-badge">
-        <span><i class="fas fa-book-open"></i> Créditos: <strong>{{ totalCreditos }}</strong></span>
-        <span class="ms-2"><i class="fas fa-clock"></i> Horas/sem: <strong>{{ totalHoras }}</strong></span>
+      <div class="stats-badge" aria-label="Resumen del horario">
+        <span><span class="stat-label">Créditos</span> <strong>{{ totalCreditos }}</strong></span>
+        <span><span class="stat-label">Horas/sem.</span> <strong>{{ totalHoras }}</strong></span>
       </div>
     </div>
   </div>
